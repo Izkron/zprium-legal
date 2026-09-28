@@ -1,0 +1,34 @@
+# Datos por módulo (generado)
+
+> Generada automáticamente desde el código de Zprium: cada módulo declara qué datos guarda, para qué, durante cuánto tiempo y cómo se borran.
+> Generated automatically from Zprium's code: every module declares what data it keeps, why, for how long and how it is erased.
+
+| Módulo | Por defecto | Almacén | Datos personales | Finalidad | Base legal | Retención | Borrado | IA local |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
+| `core` | siempre | `pg:guilds` | — (guild id, name, locale and departure time; no member data) | know which guilds use Zprium and in which language to answer | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `core` | siempre | `pg:guild_module_configs` | updated_by | which modules a guild enabled and how they are configured | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `core` | siempre | `pg:scheduled_jobs` | payload: ids of the members a job acts on, when it acts on one | work that must run later or periodically and survive restarts (retention, reminders, timed actions) | service | 30 days | retention-job, guild-purge | no |
+| `core` | siempre | `pg:members` | user_id, nickname, risk_score, reputation_points, currency_balance, xp_points, steam_id, riot_id, verified_at | per-member state used by moderation and engagement features | legitimate-interest | 30 days | retention-job, guild-purge | no |
+| `core` | siempre | `pg:event_journal` | actor ids in event payloads | durable event log for recovery, correlation and security analysis | legitimate-interest | 30 days | retention-job, guild-purge | no |
+| `core` | siempre | `pg:event_outbox` | actor ids in event payloads | guarantees events staged by a committed change reach the event bus | service | 7 days | retention-job, guild-purge | no |
+| `core` | siempre | `redis:zprium:web:session:*` | Discord user id, username, guild list | web console sessions | service | 8 h (expires) | ttl, user-request | no |
+| `aegis` | activado | `pg:forensic_audit_logs` | actor_id, target_id, action details, role ids a quarantine removed (to restore them) | tamper-evident record of security decisions and administrative actions | legitimate-interest | not enforced yet (8.0.6: pseudonyms on write and erasure by key destruction; 12-month archival later (diseno-auditoria-forense-seudonimizacion.md)) | — | no |
+| `aegis` | activado | `pg:audit_subject_keys` | subject_id (Discord user id), secret (per-person pseudonym key) | the only link from a forensic audit pseudonym back to the person, so erasure can cut it | legitimate-interest | not enforced yet (8.0.6 erases a key on request; the rest go with the 12-month forensic archival) | user-request | no |
+| `aegis` | activado | `pg:audit_erasures` | subject_hmac (HMAC-SHA256 of an erased person's Discord id, keyed outside the database), executed_by (a label, never an id) | re-apply every erasure after any backup restore, and show that each erasure request was handled | legal-obligation | kept while the service exists (owner decision 2026-09-28, stated in the privacy policy) | — | no |
+| `zflow` | desactivado | `pg:workflows` | created_by, updated_by | automation definitions a guild created | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `zflow` | desactivado | `pg:workflow_versions` | published_by | published snapshots of automation definitions | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `zflow` | desactivado | `pg:workflow_executions` | event metadata (ids, message length; never message text) | run history and traces for troubleshooting | legitimate-interest | 90 days | retention-job, guild-purge | no |
+| `zflow` | desactivado | `pg:workflow_dead_letters` | event metadata (ids, message length; never message text) | failed runs kept for an operator to inspect and replay | legitimate-interest | 30 days | retention-job, guild-purge | no |
+| `zflow` | desactivado | `pg:workflow_activation_requests` | requested_by, approvals | dual-custody activation requests for high-risk workflows | legitimate-interest | 90 days | retention-job, guild-purge | no |
+| `zflow` | desactivado | `pg:workflow_schedules` | — (cron expressions and next run times only) | when scheduled workflows run | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `zflow` | desactivado | `memory:workflow-cache` | — (active workflow definitions in process memory) | fast dispatch of events to active workflows | service | until the guild is purged (30 days after the bot leaves) | guild-purge, process-restart | no |
+| `clanops` | desactivado | `pg:autonomous_digest_schedules` | — (digest type, target channel and schedule) | periodic clan operations digests | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `esports` | desactivado | `pg:competitive_teams` | captain_user_id | teams the guild manages | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `esports` | desactivado | `pg:scrim_matches` | notes, debrief | scheduled and played scrims with their results | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `esports` | desactivado | `pg:scrim_rosters` | user_id, role, status | who plays each scrim | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `ai` | desactivado | `pg:knowledge_documents` | content (text staff chose to ingest; may name members), embedding, source_channel_id | the knowledge base /ai answers from (RAG, local embeddings) | legitimate-interest | until the guild is purged (30 days after the bot leaves) | guild-purge | sí |
+| `ai` | desactivado | `pg:autonomous_proposals` | params, approvals, rejection | AI-proposed actions awaiting human approval | legitimate-interest | 90 days | retention-job, guild-purge | sí |
+| `ai` | desactivado | `pg:autonomous_notifications` | title, summary | notifications produced by the autonomous engines | legitimate-interest | 90 days | retention-job, guild-purge | no |
+| `ai` | desactivado | `pg:autonomous_ai_jobs` | sequence_data | queued local-AI jobs and their results | legitimate-interest | 90 days | retention-job, guild-purge | sí |
+| `ai` | desactivado | `redis:zprium:ai_response:*` | generated answers to member prompts | paginate long AI answers | service | 30 min (expires) | ttl | no |
+| `feedback` | desactivado | `redis:zprium:survey:*` | respondent pseudonym (HMAC under a per-survey secret), chosen options | community surveys whose results are only shown as totals | consent | 720 h (expires) | ttl | no |
