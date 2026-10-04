@@ -7,6 +7,7 @@
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :---: |
 | `core` | siempre | `pg:guilds` | — (guild id, name, locale and departure time; no member data) | know which guilds use Zprium and in which language to answer | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
 | `core` | siempre | `pg:guild_module_configs` | updated_by | which modules a guild enabled and how they are configured | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
+| `core` | siempre | `pg:entitlement_grants` | granted_by, revoked_by (labels naming the operator, never a Discord id) | which guilds have premium, since when and until when, granted by hand by the owner | service | until the guild is purged (30 days after the bot leaves) | guild-purge | no |
 | `core` | siempre | `pg:scheduled_jobs` | payload: ids of the members a job acts on, when it acts on one | work that must run later or periodically and survive restarts (retention, reminders, timed actions) | service | 30 days | retention-job, guild-purge | no |
 | `core` | siempre | `pg:members` | user_id, nickname, risk_score, reputation_points, currency_balance, xp_points, steam_id, riot_id, verified_at | per-member state used by moderation and engagement features | legitimate-interest | 30 days | retention-job, guild-purge | no |
 | `core` | siempre | `pg:event_journal` | actor ids in event payloads | durable event log for recovery, correlation and security analysis | legitimate-interest | 30 days | retention-job, guild-purge | no |
@@ -32,3 +33,4 @@
 | `ai` | desactivado | `pg:autonomous_ai_jobs` | sequence_data | queued local-AI jobs and their results | legitimate-interest | 90 days | retention-job, guild-purge | sí |
 | `ai` | desactivado | `redis:zprium:ai_response:*` | generated answers to member prompts | paginate long AI answers | service | 30 min (expires) | ttl | no |
 | `feedback` | desactivado | `redis:zprium:survey:*` | respondent pseudonym (HMAC under a per-survey secret), chosen options | community surveys whose results are only shown as totals | consent | 720 h (expires) | ttl | no |
+| `moderation` | desactivado | `pg:mod_cases` | target_ref and moderator_ref (8.0.6 audit pseudonyms, never Discord ids), reason (free text by a moderator; person mentions stored as pseudonyms) | numbered moderation cases (warnings, notes, timeouts, kicks, bans) and their history per member | legitimate-interest | 730 days | retention-job, guild-purge, user-request | no |

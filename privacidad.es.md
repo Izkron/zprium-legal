@@ -1,6 +1,6 @@
 # Política de privacidad de Zprium
 
-**Última actualización:** 28 de septiembre de 2026
+**Última actualización:** 3 de octubre de 2026
 
 ## 1. Quién es el responsable
 
@@ -32,6 +32,7 @@ Nunca guardamos ese texto.
 | Identificador, nombre e idioma del servidor | Saber dónde está Zprium y en qué idioma responder | Prestación del servicio | Hasta 30 días después de que el bot salga del servidor |
 | Qué módulos activó el servidor y su configuración, con el identificador del administrador que la cambió | Aplicar la configuración que eligió el servidor | Prestación del servicio | Igual que el anterior |
 | Registro de seguridad (identificadores de quien hace y de quien recibe una acción, la acción y sus detalles; en una cuarentena, los roles retirados para poder devolverlos) | Detectar y registrar ataques (borrados masivos, raids) y las acciones de administración, en un registro a prueba de manipulación | Interés legítimo (seguridad) | **Hoy sin borrado automático.** Desde la versión 8.0.6, los registros nuevos guardan un seudónimo en lugar de tu identificador, y el olvido se hace destruyendo la llave de ese seudónimo (ver §6). El archivo de los registros de más de 12 meses llegará más adelante. Hasta entonces atendemos las solicitudes a mano |
+| Casos de moderación, si el servidor activa el módulo de moderación. Cada caso guarda: la acción (aviso, nota, aislamiento, expulsión o baneo), un **seudónimo** de la persona afectada y otro del moderador (nunca el identificador de Discord de ninguno de los dos), el motivo que escribe el moderador, la duración, la fecha y si el caso se anuló. También se registran como casos los aislamientos, las expulsiones y los baneos que el staff hace desde Discord | Que el staff del servidor lleve un historial de moderación y que cada acción quede registrada y se pueda comprobar | Interés legítimo (seguridad y convivencia del servidor) | **24 meses** desde el caso; después se borra solo. También se borra si el bot sale del servidor (30 días) |
 | Registro de eventos (identificadores en los eventos del servidor, sin texto de mensajes) | Recuperación ante fallos y análisis de seguridad | Interés legítimo | 30 días |
 | Automatizaciones del servidor (Z-Flow): definiciones, ejecuciones (solo metadatos, nunca el texto) y fallos | Ejecutar las automatizaciones que crea el servidor | Prestación del servicio | Ejecuciones: 90 días. Fallos resueltos: 30 días. Definiciones: hasta la purga del servidor |
 | Equipos, alineaciones y resultados de scrims (esports) | Organizar partidas del servidor | Prestación del servicio | Hasta la purga del servidor |
@@ -41,6 +42,8 @@ Nunca guardamos ese texto.
 | Trabajos programados (por ejemplo, recordatorios); pueden incluir el identificador del miembro afectado | Hacer más tarde lo que el servidor pidió | Prestación del servicio | 30 días después de terminar |
 | Sesión en la consola web (identificador y nombre de Discord, lista de servidores) | Iniciar sesión en la consola | Prestación del servicio | 8 horas, o hasta cerrar sesión |
 | Respuestas de IA en caché | Evitar repetir cálculos | Prestación del servicio | 30 minutos |
+
+**Avisos de moderación.** Si un moderador te avisa, te aísla o te expulsa con Zprium, el servidor puede enviarte un mensaje privado con la acción, el motivo y la duración. El mensaje **nunca dice quién lo hizo**. Las notas internas del staff no se te envían. Estos avisos están activados por defecto y cada servidor puede desactivarlos.
 
 **Lista completa, generada desde el código:** [datos por módulo](https://izkron.github.io/zprium-legal/privacidad-datos-por-modulo.html).
 
@@ -99,6 +102,9 @@ Aplicamos estas medidas:
 - Respondemos en **un mes como máximo**.
 - Las solicitudes las atiende y ejecuta **solo el responsable**, después de comprobar que la cuenta es tuya. Te avisamos cuando esté hecho.
 - En el registro de seguridad no se borran filas, porque el registro es inmutable. Lo que se destruye es la llave de tu seudónimo, y a partir de ese momento las filas ya no se pueden relacionar contigo. El olvido es completo cuando rotan las copias de seguridad que aún contienen esa llave, en 35 días como máximo. Podemos conservar lo imprescindible para la seguridad del servicio (art. 17.3 RGPD).
+- **Casos de moderación.** Funcionan como el registro de seguridad: guardan un seudónimo, no tu identificador. Al atender tu solicitud de supresión destruimos la llave de ese seudónimo, y desde ese momento tus casos ya no se pueden relacionar contigo. El caso en sí (la acción y su fecha) se conserva hasta que cumple 24 meses, por el interés legítimo del servidor en su historial (art. 17.3 RGPD).
+  - El motivo es texto libre. Si un moderador escribió en él tu nombre sin mencionarte, ese nombre puede seguir en el texto: dínoslo en la solicitud y lo revisamos a mano.
+  - Un moderador no puede borrar un caso, solo anularlo indicando por qué.
 - **Lista de olvidos.** Para que restaurar una copia de seguridad no pueda deshacer tu olvido, guardamos una lista mínima con tres datos:
   - una huella de tu identificador (HMAC-SHA256), calculada con una clave que se guarda fuera de la base de datos. Nunca tu identificador en claro, y sin esa clave la huella no se puede relacionar contigo;
   - la fecha del olvido;

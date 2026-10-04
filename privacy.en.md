@@ -1,6 +1,6 @@
 # Zprium Privacy Policy
 
-**Last updated:** September 28, 2026
+**Last updated:** October 3, 2026
 
 ## 1. Who is responsible
 
@@ -32,6 +32,7 @@ We never store that text.
 | Server id, name and language | Know where Zprium is and which language to answer in | Service | Until 30 days after the bot leaves the server |
 | Which modules the server enabled and their settings, with the id of the admin who changed them | Apply the configuration the server chose | Service | Same as above |
 | Security record (ids of who acts and who is affected, the action and its details; for a quarantine, the roles removed so they can be restored) | Detect and record attacks (mass deletions, raids) and administrative actions, in a tamper-evident log | Legitimate interest (security) | **No automatic deletion yet.** From version 8.0.6, new records store a pseudonym instead of your id, and erasure works by destroying that pseudonym's key (see §6). Archival of records older than 12 months will come later. Until then we handle requests manually |
+| Moderation cases, if the server turns on the moderation module. Each case stores: the action (warning, note, timeout, kick or ban), a **pseudonym** of the person it is about and one of the moderator (never either one's Discord ID), the reason the moderator writes, the duration, the date and whether the case was voided. Timeouts, kicks and bans the staff make from Discord are recorded as cases too | Letting the server's staff keep a moderation history, with every action recorded and verifiable | Legitimate interest (the server's safety and order) | **24 months** from the case, then deleted automatically. Also deleted if the bot leaves the server (30 days) |
 | Event log (ids in server events, never message text) | Crash recovery and security analysis | Legitimate interest | 30 days |
 | Server automations (Z-Flow): definitions, runs (metadata only, never message text) and failures | Run the automations the server creates | Service | Runs: 90 days. Resolved failures: 30 days. Definitions: until the server is purged |
 | Esports teams, rosters and scrim results | Organize the server's matches | Service | Until the server is purged |
@@ -41,6 +42,8 @@ We never store that text.
 | Scheduled jobs (for example, reminders); they may include the id of the member concerned | Do later what the server asked for | Service provision | 30 days after they finish |
 | Web console session (Discord id and name, server list) | Sign in to the console | Service | 8 hours, or until you sign out |
 | Cached AI answers | Avoid repeating work | Service | 30 minutes |
+
+**Moderation notices.** If a moderator warns you, times you out or kicks you with Zprium, the server may send you a direct message with the action, the reason and the duration. It **never says who did it**. Staff-only notes are never sent to you. These notices are on by default, and each server can turn them off.
 
 **Full list, generated from the code:** [data per module](https://izkron.github.io/zprium-legal/privacidad-datos-por-modulo.html).
 
@@ -99,6 +102,9 @@ We apply these measures:
 - We answer within **one month**.
 - Requests are handled and carried out **only by the controller**, after checking that the account is yours. We tell you when it is done.
 - In the security log, which is immutable, no rows are deleted. What is destroyed is the key of your pseudonym, and from then on the rows can no longer be linked to you. Erasure is complete once the backups that still hold that key rotate out, within 35 days at most. We may keep what the security of the service strictly requires (GDPR art. 17(3)).
+- **Moderation cases.** They work like the security log: they store a pseudonym, not your ID. When we act on your erasure request we destroy the key behind that pseudonym, and from then on your cases can no longer be linked to you. The case itself (the action and its date) is kept until it is 24 months old, for the server's legitimate interest in its history (Art. 17(3) GDPR).
+  - The reason is free text. If a moderator wrote your name in it without mentioning you, that name may remain in the text: tell us in your request and we will review it by hand.
+  - A moderator cannot delete a case, only void it with a reason.
 - **List of erasures.** So that restoring a backup cannot undo your erasure, we keep a minimal list with three items:
   - a fingerprint of your id (HMAC-SHA256), computed with a key that is kept outside the database. Never your id in clear, and without that key the fingerprint cannot be linked to you;
   - the date of the erasure;
