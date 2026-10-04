@@ -1,6 +1,6 @@
 # Política de privacidad de Zprium
 
-**Última actualización:** 3 de octubre de 2026
+**Última actualización:** 4 de octubre de 2026
 
 ## 1. Quién es el responsable
 
@@ -33,6 +33,7 @@ Nunca guardamos ese texto.
 | Qué módulos activó el servidor y su configuración, con el identificador del administrador que la cambió | Aplicar la configuración que eligió el servidor | Prestación del servicio | Igual que el anterior |
 | Registro de seguridad (identificadores de quien hace y de quien recibe una acción, la acción y sus detalles; en una cuarentena, los roles retirados para poder devolverlos) | Detectar y registrar ataques (borrados masivos, raids) y las acciones de administración, en un registro a prueba de manipulación | Interés legítimo (seguridad) | **Hoy sin borrado automático.** Desde la versión 8.0.6, los registros nuevos guardan un seudónimo en lugar de tu identificador, y el olvido se hace destruyendo la llave de ese seudónimo (ver §6). El archivo de los registros de más de 12 meses llegará más adelante. Hasta entonces atendemos las solicitudes a mano |
 | Casos de moderación, si el servidor activa el módulo de moderación. Cada caso guarda: la acción (aviso, nota, aislamiento, expulsión o baneo), un **seudónimo** de la persona afectada y otro del moderador (nunca el identificador de Discord de ninguno de los dos), el motivo que escribe el moderador, la duración, la fecha y si el caso se anuló. También se registran como casos los aislamientos, las expulsiones y los baneos que el staff hace desde Discord | Que el staff del servidor lleve un historial de moderación y que cada acción quede registrada y se pueda comprobar | Interés legítimo (seguridad y convivencia del servidor) | **24 meses** desde el caso; después se borra solo. También se borra si el bot sale del servidor (30 días) |
+| Registros del servidor, si el servidor activa el módulo de registros. Zprium publica en los canales que elige el staff: entradas y salidas de miembros (con la fecha de creación de la cuenta), mensajes borrados o editados (autor, canal y hora; **nunca el texto**), entradas y salidas de los canales de voz, canales y roles creados, cambiados o borrados (y quién lo hizo) y los casos de moderación | Que el staff del servidor vea lo que pasa en él y pueda moderarlo | Interés legítimo (seguridad y convivencia del servidor) | **Zprium no los guarda:** cada evento espera en memoria como mucho 15 minutos hasta que se publica, y se pierde si el bot se reinicia. Lo publicado queda en el canal del servidor mientras su staff lo conserve |
 | Registro de eventos (identificadores en los eventos del servidor, sin texto de mensajes) | Recuperación ante fallos y análisis de seguridad | Interés legítimo | 30 días |
 | Automatizaciones del servidor (Z-Flow): definiciones, ejecuciones (solo metadatos, nunca el texto) y fallos | Ejecutar las automatizaciones que crea el servidor | Prestación del servicio | Ejecuciones: 90 días. Fallos resueltos: 30 días. Definiciones: hasta la purga del servidor |
 | Equipos, alineaciones y resultados de scrims (esports) | Organizar partidas del servidor | Prestación del servicio | Hasta la purga del servidor |
@@ -44,6 +45,8 @@ Nunca guardamos ese texto.
 | Respuestas de IA en caché | Evitar repetir cálculos | Prestación del servicio | 30 minutos |
 
 **Avisos de moderación.** Si un moderador te avisa, te aísla o te expulsa con Zprium, el servidor puede enviarte un mensaje privado con la acción, el motivo y la duración. El mensaje **nunca dice quién lo hizo**. Las notas internas del staff no se te envían. Estos avisos están activados por defecto y cada servidor puede desactivarlos.
+
+**Registros del servidor.** Si el servidor activa el módulo de registros, Zprium publica en un canal del staff cuándo entras o sales del servidor, cuándo entras o sales de un canal de voz y cuándo se borra o se edita un mensaje tuyo. De un mensaje solo indica el autor, el canal y la hora: **nunca su texto**, que Zprium no lee. Si el mensaje no estaba en la memoria del bot, ni siquiera el autor. Zprium no informa de nada que pase en un canal que Discord le oculta, y sus publicaciones no notifican a nadie. Esos registros los lee el staff del servidor, que los guarda o los borra como cualquier otro mensaje de su servidor. Zprium no conserva copia.
 
 **Lista completa, generada desde el código:** [datos por módulo](https://izkron.github.io/zprium-legal/privacidad-datos-por-modulo.html).
 
@@ -105,6 +108,7 @@ Aplicamos estas medidas:
 - **Casos de moderación.** Funcionan como el registro de seguridad: guardan un seudónimo, no tu identificador. Al atender tu solicitud de supresión destruimos la llave de ese seudónimo, y desde ese momento tus casos ya no se pueden relacionar contigo. El caso en sí (la acción y su fecha) se conserva hasta que cumple 24 meses, por el interés legítimo del servidor en su historial (art. 17.3 RGPD).
   - El motivo es texto libre. Si un moderador escribió en él tu nombre sin mencionarte, ese nombre puede seguir en el texto: dínoslo en la solicitud y lo revisamos a mano.
   - Un moderador no puede borrar un caso, solo anularlo indicando por qué.
+- **Registros del servidor.** Zprium no guarda los registros que publica, así que no hay nada que borrar en nuestros sistemas. Las publicaciones están en el canal del servidor: para que se borre una, pídeselo a su staff. Si no te atienden, escríbenos y lo comunicamos al servidor.
 - **Lista de olvidos.** Para que restaurar una copia de seguridad no pueda deshacer tu olvido, guardamos una lista mínima con tres datos:
   - una huella de tu identificador (HMAC-SHA256), calculada con una clave que se guarda fuera de la base de datos. Nunca tu identificador en claro, y sin esa clave la huella no se puede relacionar contigo;
   - la fecha del olvido;

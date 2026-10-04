@@ -1,6 +1,6 @@
 # Zprium Privacy Policy
 
-**Last updated:** October 3, 2026
+**Last updated:** October 4, 2026
 
 ## 1. Who is responsible
 
@@ -33,6 +33,7 @@ We never store that text.
 | Which modules the server enabled and their settings, with the id of the admin who changed them | Apply the configuration the server chose | Service | Same as above |
 | Security record (ids of who acts and who is affected, the action and its details; for a quarantine, the roles removed so they can be restored) | Detect and record attacks (mass deletions, raids) and administrative actions, in a tamper-evident log | Legitimate interest (security) | **No automatic deletion yet.** From version 8.0.6, new records store a pseudonym instead of your id, and erasure works by destroying that pseudonym's key (see §6). Archival of records older than 12 months will come later. Until then we handle requests manually |
 | Moderation cases, if the server turns on the moderation module. Each case stores: the action (warning, note, timeout, kick or ban), a **pseudonym** of the person it is about and one of the moderator (never either one's Discord ID), the reason the moderator writes, the duration, the date and whether the case was voided. Timeouts, kicks and bans the staff make from Discord are recorded as cases too | Letting the server's staff keep a moderation history, with every action recorded and verifiable | Legitimate interest (the server's safety and order) | **24 months** from the case, then deleted automatically. Also deleted if the bot leaves the server (30 days) |
+| Server logs, if the server turns on the logs module. Zprium posts to the channels the staff picks: members joining and leaving (with the account's creation date), deleted or edited messages (author, channel and time; **never the text**), voice channel joins and leaves, channels and roles created, changed or deleted (and who did it), and moderation cases | Letting the server's staff see what happens in it and moderate it | Legitimate interest (the server's safety and order) | **Zprium does not keep them:** each event waits in memory for at most 15 minutes until it is posted, and is lost if the bot restarts. What is posted stays in the server's channel for as long as its staff keeps it |
 | Event log (ids in server events, never message text) | Crash recovery and security analysis | Legitimate interest | 30 days |
 | Server automations (Z-Flow): definitions, runs (metadata only, never message text) and failures | Run the automations the server creates | Service | Runs: 90 days. Resolved failures: 30 days. Definitions: until the server is purged |
 | Esports teams, rosters and scrim results | Organize the server's matches | Service | Until the server is purged |
@@ -44,6 +45,8 @@ We never store that text.
 | Cached AI answers | Avoid repeating work | Service | 30 minutes |
 
 **Moderation notices.** If a moderator warns you, times you out or kicks you with Zprium, the server may send you a direct message with the action, the reason and the duration. It **never says who did it**. Staff-only notes are never sent to you. These notices are on by default, and each server can turn them off.
+
+**Server logs.** If the server turns on the logs module, Zprium posts in a staff channel when you join or leave the server, when you join or leave a voice channel, and when one of your messages is deleted or edited. For a message it only gives the author, the channel and the time: **never its text**, which Zprium does not read. If the message was not in the bot's memory, not even the author. Zprium reports nothing that happens in a channel Discord hides from it, and its posts ping nobody. The server's staff reads those logs and keeps or deletes them like any other message in their server. Zprium keeps no copy.
 
 **Full list, generated from the code:** [data per module](https://izkron.github.io/zprium-legal/privacidad-datos-por-modulo.html).
 
@@ -105,6 +108,7 @@ We apply these measures:
 - **Moderation cases.** They work like the security log: they store a pseudonym, not your ID. When we act on your erasure request we destroy the key behind that pseudonym, and from then on your cases can no longer be linked to you. The case itself (the action and its date) is kept until it is 24 months old, for the server's legitimate interest in its history (Art. 17(3) GDPR).
   - The reason is free text. If a moderator wrote your name in it without mentioning you, that name may remain in the text: tell us in your request and we will review it by hand.
   - A moderator cannot delete a case, only void it with a reason.
+- **Server logs.** Zprium does not keep the logs it posts, so there is nothing to delete in our systems. The posts are in the server's channel: to have one deleted, ask its staff. If they do not act on it, write to us and we will pass it on to the server.
 - **List of erasures.** So that restoring a backup cannot undo your erasure, we keep a minimal list with three items:
   - a fingerprint of your id (HMAC-SHA256), computed with a key that is kept outside the database. Never your id in clear, and without that key the fingerprint cannot be linked to you;
   - the date of the erasure;
