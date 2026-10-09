@@ -61,6 +61,7 @@ Nunca guardamos ese texto.
 - Cada uno de esos hechos es un **strike**. Si acumulas varios en poco tiempo, Zprium te **aísla** un rato de forma automática. Por defecto: 3 en una hora, 10 minutos; 5 en un día, una hora; 8 en una semana, un día. Cada servidor puede cambiar estos valores.
 - El aislamiento abre un caso de moderación. Como con cualquier aislamiento, te lo avisamos por mensaje privado y **puedes apelarlo**, si el servidor tiene activados los avisos y las apelaciones.
 - Si el servidor tiene registros de moderación, cada strike aparece en su canal de registros: quién, el canal y el tipo de regla, nunca el texto. También aparecen los mensajes que AutoMod de Discord marca para el staff y los perfiles que pone en cuarentena, con el nombre de la regla.
+- Si el servidor lo activa, Zprium también crea y mantiene reglas de AutoMod de Discord por encargo de su staff (invitaciones, enlaces, palabras y otras). Las palabras de esas reglas se guardan en Discord, no en Zprium: Zprium solo guarda qué regla es suya, una huella para saber si alguien la cambió y la fecha.
 - El AutoMod de Zprium nunca expulsa ni banea a nadie.
 - Los strikes y los aislamientos automáticos de Zprium no se aplican al staff del servidor.
 

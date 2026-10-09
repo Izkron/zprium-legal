@@ -61,6 +61,7 @@ We never store that text.
 - Each of those facts is a **strike**. If you collect several in a short time, Zprium **times you out** for a while automatically. By default: 3 in an hour, 10 minutes; 5 in a day, one hour; 8 in a week, one day. Each server can change these values.
 - The timeout opens a moderation case. As with any timeout, we tell you by direct message and **you can appeal it**, if the server has notices and appeals turned on.
 - If the server keeps moderation logs, each strike shows in its log channel: who, the channel and the type of rule, never the text. So do the messages Discord's AutoMod flags for the staff and the profiles it quarantines, with the rule's name.
+- If the server turns it on, Zprium also creates and maintains Discord AutoMod rules on behalf of its staff (invites, links, words and others). The words of those rules are stored in Discord, not in Zprium: Zprium only keeps which rule is its own, a fingerprint to tell whether someone changed it, and the date.
 - Zprium's AutoMod never kicks or bans anyone.
 - Zprium's strikes and automatic timeouts do not apply to the server's staff.
 
