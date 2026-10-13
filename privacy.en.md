@@ -1,6 +1,6 @@
 # Zprium Privacy Policy
 
-**Last updated:** October 10, 2026
+**Last updated:** October 13, 2026
 
 ## 1. Who is responsible
 
@@ -67,6 +67,7 @@ We never store that text.
 
 **Aegis.**
 - If the server has a log channel, when Aegis detects an attack it posts there what it did and mentions the person it attributes the attack to. In monitor mode it does nothing: it posts what it would have done in enforce mode, unless the staff turns those reports off.
+- During a mass-join attack, if the staff turns it on, Aegis can raise the server's verification level and turn on a Discord AutoMod rule that compares your name and nickname with words the staff chooses. Discord does the comparison: Zprium neither reads nor stores your profile. The level and the rule go back to how they were after the time the staff chooses; if the rule blocked you, you can interact again by changing your name or nickname.
 
 **Server logs.** If the server turns on the logs module, Zprium posts in a staff channel when you join or leave the server, when you join or leave a voice channel, and when one of your messages is deleted or edited. For a message it only gives the author, the channel and the time: **never its text**, which Zprium does not read. If the message was not in the bot's memory, not even the author. Zprium reports nothing that happens in a channel Discord hides from it, and its posts ping nobody. The server's staff reads those logs and keeps or deletes them like any other message in their server. Zprium keeps no copy.
 

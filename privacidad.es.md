@@ -1,6 +1,6 @@
 # Política de privacidad de Zprium
 
-**Última actualización:** 10 de octubre de 2026
+**Última actualización:** 13 de octubre de 2026
 
 ## 1. Quién es el responsable
 
@@ -67,6 +67,7 @@ Nunca guardamos ese texto.
 
 **Aegis.**
 - Si el servidor tiene un canal de registros, cuando Aegis detecta un ataque publica en él qué hizo y menciona a la persona a la que lo atribuye. En modo vigilar no hace nada: publica lo que habría hecho en modo aplicar, salvo que el staff desactive esos informes.
+- Durante un ataque de altas masivas, si el staff lo activa, Aegis puede subir el nivel de verificación del servidor y activar una regla de AutoMod de Discord que compara tu nombre y tu apodo con palabras que elige el staff. La comparación la hace Discord: Zprium no lee ni guarda tu perfil. El nivel y la regla vuelven a su estado pasado el tiempo que elige el staff; si la regla te bloqueó, vuelves a poder interactuar cambiando tu nombre o tu apodo.
 
 **Registros del servidor.** Si el servidor activa el módulo de registros, Zprium publica en un canal del staff cuándo entras o sales del servidor, cuándo entras o sales de un canal de voz y cuándo se borra o se edita un mensaje tuyo. De un mensaje solo indica el autor, el canal y la hora: **nunca su texto**, que Zprium no lee. Si el mensaje no estaba en la memoria del bot, ni siquiera el autor. Zprium no informa de nada que pase en un canal que Discord le oculta, y sus publicaciones no notifican a nadie. Esos registros los lee el staff del servidor, que los guarda o los borra como cualquier otro mensaje de su servidor. Zprium no conserva copia.
 
