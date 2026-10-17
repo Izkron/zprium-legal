@@ -1,6 +1,6 @@
 # Política de privacidad de Zprium
 
-**Última actualización:** 13 de octubre de 2026
+**Última actualización:** 17 de octubre de 2026
 
 ## 1. Quién es el responsable
 
@@ -25,7 +25,7 @@ Zprium trata datos solo en los servidores donde un administrador lo añadió. Ca
 - usas un comando;
 - aplicas sobre un mensaje la acción "Resumir".
 
-Nunca guardamos ese texto.
+No guardamos ese texto, salvo en tres casos que explicamos abajo: la conversación con `/ai ask` (30 minutos), las preguntas que la base de conocimiento no supo responder (sin quién las hizo) y lo que tú decides guardar en tu memoria con la IA.
 
 | Datos | Para qué | Base jurídica | Cuánto tiempo |
 | :--- | :--- | :--- | :--- |
@@ -39,7 +39,11 @@ Nunca guardamos ese texto.
 | Registro de eventos (identificadores en los eventos del servidor, sin texto de mensajes) | Recuperación ante fallos y análisis de seguridad | Interés legítimo | 30 días |
 | Automatizaciones del servidor (Z-Flow): definiciones, ejecuciones (solo metadatos, nunca el texto) y fallos | Ejecutar las automatizaciones que crea el servidor | Prestación del servicio | Ejecuciones: 90 días. Fallos resueltos: 30 días. Definiciones: hasta la purga del servidor |
 | Equipos, alineaciones y resultados de scrims (esports) | Organizar partidas del servidor | Prestación del servicio | Hasta la purga del servidor |
-| Documentos que el staff añade a la base de conocimiento de IA, y sus vectores | Responder preguntas con IA local | Prestación del servicio | Hasta que se borra el documento o se purga el servidor |
+| Base de conocimiento del servidor: textos que el responsable o el staff revisan y añaden, con su fuente, sus fechas y sus vectores | Responder preguntas con IA local, citando de dónde sale cada respuesta | Prestación del servicio | Hasta que se sustituyen o se borran, o se purga el servidor |
+| Tu conversación con `/ai ask`: tus preguntas y las respuestas (como mucho 20 mensajes) | Que la IA tenga en cuenta lo que acabas de preguntar | Prestación del servicio | **30 minutos** desde tu última pregunta; después desaparece sola |
+| Preguntas que la base de conocimiento no supo responder: el texto de la pregunta **sin quién la hizo**, quitando identificadores, correos, teléfonos y otros datos; si toca salud, religión u otros datos especiales, solo de qué tipo era | Saber qué falta en la base de conocimiento | Interés legítimo (mejorar el servicio) | **180 días** desde la última vez que alguien la hizo |
+| Notas del staff de `/ai memory`: el texto de la nota y quién la guardó | Dar a la IA contexto del servidor | Interés legítimo (funcionamiento del servidor) | Hasta que el staff la borra o se purga el servidor |
+| **Tu memoria con la IA, solo si la activas** con `/ai mydata`: lo que pides guardar (preferencias, contexto, notas para más adelante), con su tipo y versión, y tu consentimiento | Recordar lo que tú le pides | **Tu consentimiento**, que puedes retirar cuando quieras | Hasta que la borres o retires el consentimiento; si no la vuelves a guardar, **365 días** (180 los resúmenes). Un consentimiento retirado se borra a los **30 días** |
 | Propuestas, avisos y trabajos del motor autónomo | Operaciones automáticas que el servidor activó | Interés legítimo | 90 días desde que terminan; las pendientes se conservan hasta que se deciden o caducan |
 | Estado de cada miembro en el servidor (identificador y datos de los módulos que lo usan) | Moderación y funciones del servidor | Interés legítimo | Mientras sea miembro; se borra 30 días después de salir del servidor (si vuelve antes, se conserva) |
 | Trabajos programados (por ejemplo, recordatorios); pueden incluir el identificador del miembro afectado | Hacer más tarde lo que el servidor pidió | Prestación del servicio | 30 días después de terminar |
@@ -78,6 +82,9 @@ Nunca guardamos ese texto.
 - Ningún texto sale hacia servicios de IA de terceros.
 - No usamos tus datos para entrenar modelos.
 - Las respuestas generadas por IA se identifican como tales.
+- **Tu memoria con la IA** está desactivada hasta que la activas tú con `/ai mydata`. Antes de guardar algo, Zprium comprueba el texto y rechaza lo que parece un secreto o un identificador, datos de salud, religión, opiniones políticas, orientación sexual, origen étnico, afiliación sindical, datos genéticos o biométricos, o dificultades económicas. La comprobación es automática y puede no detectarlo todo: no escribas datos de ese tipo.
+- La IA solo usa tu memoria en respuestas que **ves solo tú**. Nunca en un mensaje de un canal.
+- No deducimos nada de ti: la IA solo guarda lo que tú le pides guardar.
 
 **No hacemos:**
 - publicidad ni venta de datos;
@@ -136,6 +143,14 @@ Aplicamos estas medidas:
   - La respuesta del staff es texto libre. Si alguien del staff escribió en ella tu nombre sin mencionarte, ese nombre puede seguir en el texto: dínoslo en la solicitud y lo revisamos a mano.
 - **Strikes de AutoMod.** Guardan seudónimos, como los casos. Pero los que vienen de AutoMod de Discord guardan también el número de su entrada en el registro de auditoría del servidor, donde Discord sí muestra quién fue. Por eso, al atender tu solicitud de supresión **borramos tus strikes**, además de destruir tu llave. Si no, se borran a los 30 días.
 - **Registros del servidor.** Zprium no guarda los registros que publica, así que no hay nada que borrar en nuestros sistemas. Las publicaciones están en el canal del servidor: para que se borre una, pídeselo a su staff. Si no te atienden, escríbenos y lo comunicamos al servidor.
+- **Tu memoria con la IA.** Con `/ai mydata` puedes:
+  - verla;
+  - exportarla en un archivo;
+  - corregirla, guardando de nuevo la misma clave;
+  - borrar una nota o todo, y retirar tu consentimiento, lo que la borra al momento.
+
+  Cada una de esas acciones queda en el registro de seguridad, sin el contenido. Si nos pides la supresión, la borramos en todos los servidores y quitamos tu nombre de las notas del staff que guardaste, y no vuelve aunque restauremos una copia. El borrado es completo cuando rotan las copias de seguridad, en 35 días como máximo.
+- **Conversación de `/ai ask` y preguntas sin respuesta.** La conversación desaparece sola a los 30 minutos. Las preguntas sin respuesta no guardan quién las hizo, así que no podemos encontrarlas por tu identificador. Si escribiste en una algo que te identifica, dínoslo y la revisamos a mano.
 - **Lista de olvidos.** Para que restaurar una copia de seguridad no pueda deshacer tu olvido, guardamos una lista mínima con tres datos:
   - una huella de tu identificador (HMAC-SHA256), calculada con una clave que se guarda fuera de la base de datos. Nunca tu identificador en claro, y sin esa clave la huella no se puede relacionar contigo;
   - la fecha del olvido;

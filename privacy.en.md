@@ -1,6 +1,6 @@
 # Zprium Privacy Policy
 
-**Last updated:** October 13, 2026
+**Last updated:** October 17, 2026
 
 ## 1. Who is responsible
 
@@ -25,7 +25,7 @@ Zprium only processes data in servers where an administrator added it. Each serv
 - run a command;
 - use the "Summarize" action on a message.
 
-We never store that text.
+We do not store that text, except in three cases explained below: your conversation with `/ai ask` (30 minutes), the questions the knowledge base could not answer (without who asked them), and what you choose to keep in your memory with the AI.
 
 | Data | Purpose | Legal basis | How long |
 | :--- | :--- | :--- | :--- |
@@ -39,7 +39,11 @@ We never store that text.
 | Event log (ids in server events, never message text) | Crash recovery and security analysis | Legitimate interest | 30 days |
 | Server automations (Z-Flow): definitions, runs (metadata only, never message text) and failures | Run the automations the server creates | Service | Runs: 90 days. Resolved failures: 30 days. Definitions: until the server is purged |
 | Esports teams, rosters and scrim results | Organize the server's matches | Service | Until the server is purged |
-| Documents staff add to the AI knowledge base, and their vectors | Answer questions with local AI | Service | Until the document is deleted or the server is purged |
+| The server's knowledge base: texts the controller or the staff review and add, with their source, dates and vectors | Answering questions with local AI, citing where each answer comes from | Service | Until they are replaced or deleted, or the server is purged |
+| Your conversation with `/ai ask`: your questions and the answers (at most 20 messages) | Letting the AI take into account what you just asked | Service | **30 minutes** after your last question; then it disappears on its own |
+| Questions the knowledge base could not answer: the text of the question **without who asked it**, with identifiers, email addresses, phone numbers and other data removed; if it touches health, religion or other special categories, only which kind it was | Knowing what the knowledge base is missing | Legitimate interest (improving the service) | **180 days** after the last time someone asked it |
+| Staff notes of `/ai memory`: the text of the note and who saved it | Giving the AI context about the server | Legitimate interest (running the server) | Until the staff deletes it or the server is purged |
+| **Your memory with the AI, only if you turn it on** with `/ai mydata`: what you ask it to keep (preferences, context, notes for later), with its kind and version, and your consent | Remembering what you ask it to | **Your consent**, which you can withdraw at any time | Until you delete it or withdraw your consent; if you do not save it again, **365 days** (180 for summaries). A withdrawn consent is deleted after **30 days** |
 | Proposals, notices and jobs of the autonomous engine | Automatic operations the server enabled | Legitimate interest | 90 days after they finish; pending ones are kept until decided or expired |
 | Per-member state in the server (id and the data of the modules that use it) | Moderation and server features | Legitimate interest | While a member; deleted 30 days after leaving the server (kept if they come back sooner) |
 | Scheduled jobs (for example, reminders); they may include the id of the member concerned | Do later what the server asked for | Service provision | 30 days after they finish |
@@ -78,6 +82,9 @@ We never store that text.
 - No text is sent to third-party AI services.
 - We do not use your data to train models.
 - AI-generated answers are labelled as such.
+- **Your memory with the AI** is off until you turn it on with `/ai mydata`. Before keeping anything, Zprium checks the text and refuses what looks like a secret or an identifier, data about health, religion, political opinions, sexual orientation, ethnic origin, trade union membership, genetic or biometric data, or financial hardship. The check is automatic and may not catch everything: do not write such data.
+- The AI only uses your memory in answers that **only you can see**. Never in a message in a channel.
+- We infer nothing about you: the AI only keeps what you ask it to keep.
 
 **We do not:**
 - advertise or sell data;
@@ -136,6 +143,14 @@ We apply these measures:
   - The staff's reply is free text. If someone on the staff wrote your name in it without mentioning you, that name may remain in the text: tell us in your request and we will review it by hand.
 - **AutoMod strikes.** They store pseudonyms, like cases. But those that come from Discord's AutoMod also store the number of their entry in the server's audit log, where Discord does show who it was. So when we act on your erasure request we **delete your strikes**, as well as destroying your key. Otherwise they are deleted after 30 days.
 - **Server logs.** Zprium does not keep the logs it posts, so there is nothing to delete in our systems. The posts are in the server's channel: to have one deleted, ask its staff. If they do not act on it, write to us and we will pass it on to the server.
+- **Your memory with the AI.** With `/ai mydata` you can:
+  - see it;
+  - export it to a file;
+  - correct it, by saving the same key again;
+  - delete one note or all of it, and withdraw your consent, which deletes it at once.
+
+  Each of those actions is recorded in the security log, without the content. If you ask us for erasure, we delete it in every server and remove your name from the staff notes you saved, and it does not come back even if we restore a backup. Erasure is complete when the backups rotate, within 35 days at most.
+- **Your `/ai ask` conversation and unanswered questions.** The conversation disappears on its own after 30 minutes. Unanswered questions do not keep who asked them, so we cannot find them by your identifier. If you wrote something in one that identifies you, tell us and we will review it by hand.
 - **List of erasures.** So that restoring a backup cannot undo your erasure, we keep a minimal list with three items:
   - a fingerprint of your id (HMAC-SHA256), computed with a key that is kept outside the database. Never your id in clear, and without that key the fingerprint cannot be linked to you;
   - the date of the erasure;
