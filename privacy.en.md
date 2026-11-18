@@ -1,6 +1,6 @@
 # Zprium Privacy Policy
 
-**Last updated:** November 15, 2026
+**Last updated:** November 18, 2026
 
 ## 1. Who is responsible
 
@@ -41,6 +41,7 @@ We do not store that text, except in three cases explained below: your conversat
 | Economy, if the server turns the module on: your virtual coin balance, when you last claimed the daily reward, the history of your movements (rewards, transfers, purchases, game prizes and level rewards, with the other member when there is one) and your shop items | So you can earn, send and spend coins in that server without anything getting lost or charged twice | Provision of the service | While the server uses Zprium; deleted on your erasure request or when the server is purged |
 | Levels, if the server turns the module on: your XP and level in that server, how many of your messages earned XP, when the last one did and that day's XP | So you can see your progress with `/profile` and the leaderboard with `/levels leaderboard` | Provision of the service | While the server uses Zprium, even if it turns the module off; deleted on your erasure request or when the server is purged |
 | Giveaways, if the server turns the module on: whether you entered a giveaway and when; if you win, that you won; if you host one, that you started it | So you can enter and leave, and so the result can be reproduced | Provision of the service | While the server uses Zprium; deleted on your erasure request or when the server is purged (see the limits in §6) |
+| Support tickets, if the server turns the module on: that you opened a ticket, its number, its topic (support, report or other), its thread, its state and who on the staff took or closed it. **Never the subject, the description or the messages** | So the server's staff can help you privately and know which tickets are still open | Provision of the service | While the server uses Zprium; deleted on your erasure request or when the server is purged |
 | Server logs, if the server turns on the logs module. Zprium posts to the channels the staff picks: members joining and leaving (with the account's creation date), when a member verifies or uses up their verification attempts (with the kind of challenge, **never the answer**), when the verification kicks a member who did not verify in time (with the deadline, **never a reason**), deleted or edited messages (author, channel and time; **never the text**), voice channel joins and leaves, channels and roles created, changed or deleted (and who did it), AutoMod rules created, changed or deleted (their name and who did it, never their words), moderation cases and, if the server turns on AutoMod, its strikes | Letting the server's staff see what happens in it and moderate it | Legitimate interest (the server's safety and order) | **Zprium does not keep them:** each event waits in memory for at most 15 minutes until it is posted, and is lost if the bot restarts. What is posted stays in the server's channel for as long as its staff keeps it |
 | Event log (ids in server events, never message text) | Crash recovery and security analysis | Legitimate interest | 30 days |
 | Server automations (Z-Flow): definitions, runs (metadata only, never message text) and failures | Run the automations the server creates | Service | Runs: 90 days. Resolved failures: 30 days. Definitions: until the server is purged |
@@ -115,6 +116,13 @@ We do not store that text, except in three cases explained below: your conversat
 - **The digest is not anonymous.** It is an unsalted SHA-256 of Discord identifiers, which are not secret. Someone who knows the possible participants (for example, in a small server) can try lists until one matches and so learn who entered. We do not promise that the digest cannot be linked to you.
 - **What can and cannot be checked.** At the start, the SHA-256 of a secret seed is published. At the close, anyone can check that the revealed seed is the committed one and, **if they know the exact list of eligible participants**, recompute the winners with the published algorithm (HMAC-SHA256 of the seed with each identifier). This does not prove that the list included every eligible participant, nor that Zprium did not know its own seed: the bot generates it.
 - Giveaways take no payments and no bets. The prize is described and delivered by the server's staff, not by Zprium.
+
+**Tickets.** If the server turns the tickets module on:
+- You open a ticket from the server's panel by filling in a form. Zprium creates a **private thread**, adds you and posts your subject and description there once. In a private staff channel it posts a notice with the ticket's number, its topic and your name, without what you wrote. **Zprium does not keep what you wrote**: it stays only as a message in the Discord thread, and it does not disappear from Discord because Zprium does not keep it.
+- The thread is seen by you, by the staff members who join it, by the server's owner and by anyone with Discord's "Manage Threads" or administrator permission in that channel, even if they do not handle tickets, **including other bots** the server installed with that permission. Discord decides that from the server's permissions. Zprium mentions nobody inside the thread and breaks any mention you type, so nobody can be added that way.
+- Zprium keeps only the ticket's data: number, topic, thread, state, who opened it and who took or closed it. You can have **one open ticket per server**.
+- When it is closed, the thread is locked and archived; its messages stay in Discord. Staff can reopen it.
+- Zprium **does not transcribe or archive** ticket conversations and does not use them with the AI.
 
 **Music.** While music plays in a voice channel, Zprium keeps in memory the channel and who asked for each song, for the queue and its controls. It is cleared when the channel empties, with `/music leave` or when the bot restarts. Downloaded songs are kept on Zprium's server as a local copy, with no data about you, and deleted after 30 days without being played.
 
@@ -193,6 +201,7 @@ We apply these measures:
 - **Economy.** When we handle your erasure request we delete your balance, items and movements in every server; in other members' movements with you, we remove your identifier.
 - **Levels.** When we handle your erasure request we delete your XP and level in every server, and they do not come back even if we restore a backup.
 - **Giveaways.** When we handle your erasure request we delete your entries in every server, remove you from the winners and remove your identifier from the giveaways you hosted, and it does not come back even if we restore a backup. **What Zprium cannot delete:** the participants digest of a giveaway already closed stays as it is and was computed with your identifier if you entered, so it could still be used to check that you entered; and result messages that mention you are in the server's channel, in Discord: to have one deleted, ask its staff.
+- **Tickets.** When we act on your erasure request we **delete the tickets you opened** and remove your name from the ones you took or closed as staff; restoring a backup does not bring them back. **We do not delete the Discord threads, messages or staff-channel notices**, which belong to the server: ask its staff. Security-log rows about your tickets (open, take, join, close, reopen) keep a pseudonym, the ticket's number, topic and thread, never what you wrote; on erasure we destroy that pseudonym's key.
 - **Your memory with the AI.** With `/ai mydata` you can:
   - see it;
   - export it to a file;
