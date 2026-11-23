@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Datos por módulo | Zprium</title>
+<meta name="description" content="Datos por módulo">
+<link rel="canonical" href="https://zprium.com/datos-por-modulo">
+<link rel="icon" href="/assets/zprium-icon.png" type="image/png">
+<link rel="preload" href="/assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#0a1024">
+<meta property="og:title" content="Datos por módulo">
+<meta property="og:description" content="Datos por módulo">
+<meta property="og:image" content="https://zprium.com/assets/zprium-icon.png">
+</head>
+<body class="page">
+<a class="skip" href="#main">Saltar al contenido</a>
+<header class="top">
+<a class="lockup small" href="/" aria-label="Zprium by AscendXion, inicio"><img src="/assets/zprium-icon.png" alt="" width="40" height="40"><span class="word">ZPRIUM</span><span class="by">by ASCENDXION</span></a>
+<nav aria-label="Principal"><a href="/">Inicio</a><a href="/pricing">Precios</a><a href="/permisos">Permisos</a><a href="/soporte">Soporte</a></nav>
+</header>
+<main id="main">
+<article class="prose wide">
+<h1>Datos por módulo (generado)</h1>
+<blockquote>
+<p>Generada automáticamente desde el código de Zprium: cada módulo declara qué datos guarda, para qué, durante cuánto tiempo y cómo se borran.</p>
+</blockquote>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th align="left">Módulo</th>
+<th align="left">Por defecto</th>
+<th align="left">Almacén</th>
+<th align="left">Datos personales</th>
+<th align="left">Finalidad</th>
+<th align="left">Base legal</th>
+<th align="left">Retención</th>
+<th align="left">Borrado</th>
+<th align="center">IA local</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:guilds</code></td>
+<td align="left">— (guild id, name, locale and departure time; no member data)</td>
+<td align="left">know which guilds use Zprium and in which language to answer</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:guild_module_configs</code></td>
+<td align="left">updated_by</td>
+<td align="left">which modules a guild enabled and how they are configured</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:entitlement_grants</code></td>
+<td align="left">granted_by, revoked_by (labels naming the operator, never a Discord id)</td>
+<td align="left">which guilds have premium, since when and until when, granted by hand by the owner</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:scheduled_jobs</code></td>
+<td align="left">payload: ids of the members a job acts on, when it acts on one</td>
+<td align="left">work that must run later or periodically and survive restarts (retention, reminders, timed actions)</td>
+<td align="left">service</td>
+<td align="left">30 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:delivery_attempts</code></td>
+<td align="left">— (owner_id is the proposal or job that tried it, never a member; message_id is a bot message)</td>
+<td align="left">one row per bot post that must not be lost or posted twice (scrim reminders, digests): its state, nonce and the id of the message Discord confirmed</td>
+<td align="left">service</td>
+<td align="left">168 h (expires)</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:members</code></td>
+<td align="left">user_id, nickname, risk_score, reputation_points, currency_balance, xp_points, steam_id, riot_id, verified_at</td>
+<td align="left">per-member state used by moderation and engagement features</td>
+<td align="left">legitimate-interest</td>
+<td align="left">30 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:event_journal</code></td>
+<td align="left">actor ids in event payloads</td>
+<td align="left">durable event log for recovery, correlation and security analysis</td>
+<td align="left">legitimate-interest</td>
+<td align="left">30 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>pg:event_outbox</code></td>
+<td align="left">actor ids in event payloads</td>
+<td align="left">guarantees events staged by a committed change reach the event bus</td>
+<td align="left">service</td>
+<td align="left">7 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>core</code></td>
+<td align="left">siempre</td>
+<td align="left"><code>redis:zprium:web:session:*</code></td>
+<td align="left">Discord user id, username, guild list</td>
+<td align="left">web console sessions</td>
+<td align="left">service</td>
+<td align="left">8 h (expires)</td>
+<td align="left">ttl, user-request</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>aegis</code></td>
+<td align="left">activado</td>
+<td align="left"><code>pg:forensic_audit_logs</code></td>
+<td align="left">actor_id, target_id, action details, role ids a quarantine removed (to restore them)</td>
+<td align="left">tamper-evident record of security decisions and administrative actions</td>
+<td align="left">legitimate-interest</td>
+<td align="left">not enforced yet (8.0.6: pseudonyms on write and erasure by key destruction; 12-month archival later (diseno-auditoria-forense-seudonimizacion.md))</td>
+<td align="left">—</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>aegis</code></td>
+<td align="left">activado</td>
+<td align="left"><code>pg:audit_subject_keys</code></td>
+<td align="left">subject_id (Discord user id), secret (per-person pseudonym key)</td>
+<td align="left">the only link from a forensic audit pseudonym back to the person, so erasure can cut it</td>
+<td align="left">legitimate-interest</td>
+<td align="left">not enforced yet (8.0.6 erases a key on request; the rest go with the 12-month forensic archival)</td>
+<td align="left">user-request</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>aegis</code></td>
+<td align="left">activado</td>
+<td align="left"><code>pg:audit_erasures</code></td>
+<td align="left">subject_hmac (HMAC-SHA256 of an erased person&#39;s Discord id, keyed outside the database), executed_by (a label, never an id)</td>
+<td align="left">re-apply every erasure after any backup restore, and show that each erasure request was handled</td>
+<td align="left">legal-obligation</td>
+<td align="left">kept while the service exists (owner decision 2026-09-28, stated in the privacy policy)</td>
+<td align="left">—</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:workflows</code></td>
+<td align="left">created_by, updated_by</td>
+<td align="left">automation definitions a guild created</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:workflow_versions</code></td>
+<td align="left">published_by</td>
+<td align="left">published snapshots of automation definitions</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:workflow_executions</code></td>
+<td align="left">event metadata (ids, message length; never message text)</td>
+<td align="left">run history and traces for troubleshooting</td>
+<td align="left">legitimate-interest</td>
+<td align="left">90 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:workflow_dead_letters</code></td>
+<td align="left">event metadata (ids, message length; never message text)</td>
+<td align="left">failed runs kept for an operator to inspect and replay</td>
+<td align="left">legitimate-interest</td>
+<td align="left">30 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:workflow_activation_requests</code></td>
+<td align="left">requested_by, approvals</td>
+<td align="left">dual-custody activation requests for high-risk workflows</td>
+<td align="left">legitimate-interest</td>
+<td align="left">90 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:workflow_schedules</code></td>
+<td align="left">— (cron expressions and next run times only)</td>
+<td align="left">when scheduled workflows run</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>zflow</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:workflow-cache</code></td>
+<td align="left">— (active workflow definitions in process memory)</td>
+<td align="left">fast dispatch of events to active workflows</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge, process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>clanops</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:autonomous_digest_schedules</code></td>
+<td align="left">— (digest type, target channel and schedule)</td>
+<td align="left">periodic clan operations digests</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>esports</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:competitive_teams</code></td>
+<td align="left">captain_user_id</td>
+<td align="left">teams the guild manages</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>esports</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:scrim_matches</code></td>
+<td align="left">notes, debrief</td>
+<td align="left">scheduled and played scrims with their results</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>esports</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:scrim_rosters</code></td>
+<td align="left">user_id, role, status</td>
+<td align="left">who plays each scrim</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:knowledge_documents</code></td>
+<td align="left">content (text staff chose to ingest; may name members), embedding, source_channel_id</td>
+<td align="left">the knowledge base /ai answered from before 8.4.5 (384-dimension vectors); no longer read, and retired by the owner on 2026-10-17: its rows are QA fixtures, to be deleted by the owner after a verified backup</td>
+<td align="left">legitimate-interest</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:autonomous_proposals</code></td>
+<td align="left">params, approvals, rejection</td>
+<td align="left">AI-proposed actions awaiting human approval</td>
+<td align="left">legitimate-interest</td>
+<td align="left">90 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:autonomous_notifications</code></td>
+<td align="left">title, summary</td>
+<td align="left">notifications produced by the autonomous engines</td>
+<td align="left">legitimate-interest</td>
+<td align="left">90 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:autonomous_ai_jobs</code></td>
+<td align="left">sequence_data</td>
+<td align="left">queued local-AI jobs and their results</td>
+<td align="left">legitimate-interest</td>
+<td align="left">90 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:knowledge_units</code></td>
+<td align="left">title and body (text staff or the owner chose to ingest; redacted of contacts, ids and secrets before it is stored), embedding</td>
+<td align="left">the verified knowledge base /ai ask, /ask and /kb answer from, with provenance, epistemic label and validity (8.4.5)</td>
+<td align="left">legitimate-interest</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:knowledge_gaps</code></td>
+<td align="left">— (never who asked: the question is redacted of contacts, ids and secrets, and a question about health, beliefs, hardship or other sensitive data keeps only a marker of its category; by last_seen)</td>
+<td align="left">questions the knowledge base did not answer, counted, to know what to add</td>
+<td align="left">legitimate-interest</td>
+<td align="left">180 days</td>
+<td align="left">retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:ai_memory_consents</code></td>
+<td align="left">user_id, granted_at, revoked_at, policy_version</td>
+<td align="left">a member&#39;s opt-in to persistent AI memory, and the record that they withdrew it</td>
+<td align="left">consent</td>
+<td align="left">30 days</td>
+<td align="left">user-request, retention-job, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:ai_member_memories</code></td>
+<td align="left">user_id, what the member chose to save (goals, preferences, context), each with its version and expiry</td>
+<td align="left">remember what the member asked to be remembered, and use it only to answer that member</td>
+<td align="left">consent</td>
+<td align="left">365 days</td>
+<td align="left">user-request, retention-job, guild-purge</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:ai_guild_notes</code></td>
+<td align="left">saved_by (the staff member who saved the note), content (staff notes; contacts and secrets redacted)</td>
+<td align="left">staff notes of /ai memory: context of the server for its AI answers</td>
+<td align="left">legitimate-interest</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>redis:zprium:ai:conv:*</code></td>
+<td align="left">the member&#39;s last /ai ask questions and the answers, at most 20 messages</td>
+<td align="left">keep the thread of a short /ai ask conversation, per member and server</td>
+<td align="left">service</td>
+<td align="left">30 min (expires)</td>
+<td align="left">ttl, user-request</td>
+<td align="center">sí</td>
+</tr>
+<tr>
+<td align="left"><code>ai</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>redis:zprium:ai_response:*</code></td>
+<td align="left">generated answers to member prompts</td>
+<td align="left">paginate long AI answers</td>
+<td align="left">service</td>
+<td align="left">30 min (expires)</td>
+<td align="left">ttl</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>feedback</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>redis:zprium:survey:*</code></td>
+<td align="left">respondent pseudonym (HMAC under a per-survey secret), chosen options</td>
+<td align="left">community surveys whose results are only shown as totals</td>
+<td align="left">consent</td>
+<td align="left">720 h (expires)</td>
+<td align="left">ttl</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>moderation</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:mod_cases</code></td>
+<td align="left">target_ref and moderator_ref (8.0.6 audit pseudonyms, never Discord ids), reason (free text by a moderator; person mentions stored as pseudonyms; a fixed text for AutoMod and Aegis cases)</td>
+<td align="left">numbered moderation cases (warnings, notes, timeouts, kicks, bans, and the quarantines and kicks Aegis makes) and their history per member</td>
+<td align="left">legitimate-interest</td>
+<td align="left">730 days</td>
+<td align="left">retention-job, guild-purge, user-request</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>moderation</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:mod_appeals</code></td>
+<td align="left">appellant_ref and decided_by_ref (8.0.6 audit pseudonyms, never Discord ids), decision_note (the staff&#39;s optional reply to the member; person mentions stored as pseudonyms)</td>
+<td align="left">appeals against moderation cases: their state, dates and the staff decision</td>
+<td align="left">legitimate-interest</td>
+<td align="left">730 days</td>
+<td align="left">retention-job, guild-purge, user-request</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>logs</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:guild-log-queue</code></td>
+<td align="left">ids of the members, authors, moderators and channels of events waiting to be posted (never the text of a message), moderation case reasons, while a case event waits to be posted</td>
+<td align="left">group bursts of log events and pace the posts to the log channels each guild picked</td>
+<td align="left">legitimate-interest</td>
+<td align="left">15 min (expires)</td>
+<td align="left">ttl, process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>automod</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:mod_automod_strikes</code></td>
+<td align="left">subject_ref (8.0.6 audit pseudonym, never a Discord id), audit_log_id (a Discord strike&#39;s audit-log entry, which names the member in Discord: erasure deletes the strike, AM37)</td>
+<td align="left">AutoMod strikes per member, to time out who breaks the rules repeatedly</td>
+<td align="left">legitimate-interest</td>
+<td align="left">30 days</td>
+<td align="left">retention-job, guild-purge, user-request</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>automod</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:automod-counters</code></td>
+<td align="left">ids of members and the times of their recent messages, for the flood rule (never the text)</td>
+<td align="left">count messages per member over a few seconds, to strike a flood</td>
+<td align="left">legitimate-interest</td>
+<td align="left">1 min (expires)</td>
+<td align="left">ttl, process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>verification</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>redis:zprium:verify:*</code></td>
+<td align="left">guild and member ids, hashes of the answers a pending challenge accepts (never what the member typed), how many attempts failed</td>
+<td align="left">a pending verification challenge, taken once, and the failed attempts that make a member wait</td>
+<td align="left">legitimate-interest</td>
+<td align="left">24 h (expires)</td>
+<td align="left">ttl</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>verification</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>redis:zprium:raid:*</code></td>
+<td align="left">— (the guild&#39;s id only, no member; it lives the guild&#39;s raid window (raid.restoreAfterMinutes, 24 hours at most))</td>
+<td align="left">remember that Aegis saw a raid in a guild, so the verification stays harder until the raid window ends</td>
+<td align="left">legitimate-interest</td>
+<td align="left">24 h (expires)</td>
+<td align="left">ttl</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>economy</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:economy_wallets</code></td>
+<td align="left">guild_id, user_id, balance, last_daily_at, updated_at</td>
+<td align="left">a member&#39;s non-negative virtual coin balance and daily reward timestamp in a guild</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>economy</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:economy_transactions</code></td>
+<td align="left">guild_id, user_id, counterparty_user_id, kind, amount, balance_after, counterparty_balance_after, item_id, idempotency_key, created_at</td>
+<td align="left">append-only ledger of coin credits, transfers, and shop purchases with idempotency keys per guild</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>economy</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:economy_shop_items</code></td>
+<td align="left">guild_id, item_id, name, description, price, kind, role_id</td>
+<td align="left">per-guild shop catalog of virtual items (consumables, badges, cosmetic roles)</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>economy</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:economy_inventories</code></td>
+<td align="left">guild_id, user_id, item_id, quantity, used_count, active, acquired_at, last_used_at</td>
+<td align="left">a member&#39;s owned virtual items, consumables, and activated badges/roles in a guild</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>music</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:music-sessions</code></td>
+<td align="left">guildId, voiceChannelId, textChannelId, requestedBy</td>
+<td align="left">in-memory per-guild interactive music playback session and queue for verified-rights tracks</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>autoroles</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:autoroles-member-queue</code></td>
+<td align="left">guild and member ids of a grant in progress</td>
+<td align="left">run one member&#39;s automatic-role grants one at a time, so two signals never race</td>
+<td align="left">legitimate-interest</td>
+<td align="left">10 min (expires)</td>
+<td align="left">ttl, process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>welcome</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:welcome-arrivals</code></td>
+<td align="left">guild and member ids and the join time of an arrival already welcomed</td>
+<td align="left">send one welcome per arrival, however many readiness signals the same join produces</td>
+<td align="left">legitimate-interest</td>
+<td align="left">24 h (expires)</td>
+<td align="left">ttl, process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>welcome</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:welcome-pace</code></td>
+<td align="left">— (guild ids and send times of the last minute only, no member)</td>
+<td align="left">the 5-a-minute pace per guild for welcomes and goodbyes, and the one-a-minute test</td>
+<td align="left">legitimate-interest</td>
+<td align="left">1 min (expires)</td>
+<td align="left">ttl, process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>welcome</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:welcome-counters</code></td>
+<td align="left">— (guild ids and numbers only, no member; they restart with the process (O3) and /welcome says since when)</td>
+<td align="left">the counts /welcome shows: sent, skipped during a raid or over the pace, failed DMs, goodbyes without data</td>
+<td align="left">legitimate-interest</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">process-restart</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>welcome</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>memory:welcome-card-request</code></td>
+<td align="left">profile picture (the 128 px avatar PNG from Discord&#39;s CDN), display name, server name and its member count</td>
+<td align="left">draw the welcome card the server chose (off by default) and attach it to the welcome</td>
+<td align="left">legitimate-interest</td>
+<td align="left">0 min (expires)</td>
+<td align="left">ttl</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>levels</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:member_levels</code></td>
+<td align="left">guild_id, user_id, xp, level, awarded_messages, last_award_at, day_key, day_xp, last_award_xp, updated_at</td>
+<td align="left">a member&#39;s XP and level in a guild, from how many of their messages earned XP (never what they said)</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>giveaways</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:giveaways</code></td>
+<td align="left">guild_id, host_id, winner_ids, participants_count, participants_hash, created_at, closed_at</td>
+<td align="left">a giveaway of a guild: who started it, its prize text, when it ends, its seed commitment and, once drawn, its winners and the hash of its participants</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>giveaways</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:giveaway_entries</code></td>
+<td align="left">giveaway_id, user_id, entered_at</td>
+<td align="left">who entered a giveaway and when, one entry per member</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+<tr>
+<td align="left"><code>tickets</code></td>
+<td align="left">desactivado</td>
+<td align="left"><code>pg:tickets</code></td>
+<td align="left">guild_id, opener_id, claimed_by, closed_by, thread_id, category, status, created_at, claimed_at, closed_at</td>
+<td align="left">a support ticket&#39;s metadata: its number, its private thread, who opened it, its topic, its state and who handled it (never its subject, description or messages)</td>
+<td align="left">service</td>
+<td align="left">until the guild is purged (30 days after the bot leaves)</td>
+<td align="left">user-request, guild-purge</td>
+<td align="center">no</td>
+</tr>
+</tbody></table>
+</div></article>
+</main>
+<footer class="foot">
+<div class="foot-brand"><a class="lockup tiny" href="/" aria-label="Zprium by AscendXion, inicio"><img src="/assets/zprium-icon.png" alt="" width="40" height="40"><span class="word">ZPRIUM</span><span class="by">by ASCENDXION</span></a><p>Hecho para la comunidad AscendXion. IA local, sin servicios de IA en la nube.</p></div>
+<ul class="foot-links"><li><a href="/privacidad">Privacidad</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terminos">Términos</a></li><li><a href="/terms">Terms</a></li><li><a href="/subscriptions">Suscripciones</a></li><li><a href="/refunds">Reembolsos</a></li><li><a href="/cookies">Cookies</a></li><li><a href="/datos-por-modulo">Datos por módulo</a></li></ul>
+<p class="foot-contact">Soporte: <a href="https://discord.gg/HcfkxN7TcH">servidor ASXN</a> o <a href="mailto:zprium.support@gmail.com">zprium.support@gmail.com</a></p>
+</footer>
+</body>
+</html>

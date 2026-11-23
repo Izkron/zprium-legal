@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy | Zprium</title>
+<meta name="description" content="Last updated: November 23, 2026">
+<link rel="canonical" href="https://zprium.com/privacy">
+<link rel="icon" href="/assets/zprium-icon.png" type="image/png">
+<link rel="preload" href="/assets/fonts/unbounded.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/site.css">
+<meta name="theme-color" content="#0a1024">
+<meta property="og:title" content="Privacy Policy">
+<meta property="og:description" content="Last updated: November 23, 2026">
+<meta property="og:image" content="https://zprium.com/assets/zprium-icon.png">
+</head>
+<body class="page">
+<a class="skip" href="#main">Skip to content</a>
+<header class="top">
+<a class="lockup small" href="/" aria-label="Zprium by AscendXion, inicio"><img src="/assets/zprium-icon.png" alt="" width="40" height="40"><span class="word">ZPRIUM</span><span class="by">by ASCENDXION</span></a>
+<nav aria-label="Principal"><a href="/">Inicio</a><a href="/pricing">Precios</a><a href="/permisos">Permisos</a><a href="/soporte">Soporte</a></nav>
+</header>
+<main id="main">
+<article class="prose">
+<h1>Zprium Privacy Policy</h1>
+<p><strong>Last updated:</strong> November 23, 2026</p>
+<h2>1. Who is responsible</h2>
+<p>Zprium is a Discord bot operated by <strong>Isaac Dereck Lizana Correa (Dereck Lizana)</strong>, based in <strong>Italy</strong> (&quot;we&quot;).</p>
+<ul>
+<li>Privacy contact: <strong><a href="mailto:zprium.support@gmail.com">zprium.support@gmail.com</a></strong>.</li>
+<li>Support server: <strong><a href="https://discord.gg/HcfkxN7TcH">https://discord.gg/HcfkxN7TcH</a></strong>.</li>
+</ul>
+<p>Zprium runs on hardware owned by the controller, located in <strong>Italy</strong>. The database, the cache and the artificial intelligence models all run on that machine. We use no cloud AI provider.</p>
+<h2>2. Who this applies to</h2>
+<p>This policy covers:</p>
+<ul>
+<li>members of Discord servers where Zprium is present;</li>
+<li>administrators who configure it, in Discord or in its web console.</li>
+</ul>
+<p>Zprium only processes data in servers where an administrator added it. Each server decides which modules to turn on: <strong>everything beyond the core is off by default</strong>.</p>
+<h2>3. What we process, why, and for how long</h2>
+<p><strong>We do not read your message content.</strong> Zprium does not ask Discord for the message content permission. It only sees text when you:</p>
+<ul>
+<li>mention the bot;</li>
+<li>run a command;</li>
+<li>answer a Zprium form, such as a verification challenge or an appeal;</li>
+<li>use the &quot;Summarize&quot; action on a message.</li>
+</ul>
+<p>We do not store that text, except in three cases explained below: your conversation with <code>/ai ask</code> (30 minutes), the questions the knowledge base could not answer (without who asked them), and what you choose to keep in your memory with the AI.</p>
+<div class="table-wrap" tabindex="0"><table>
+<thead>
+<tr>
+<th align="left">Data</th>
+<th align="left">Purpose</th>
+<th align="left">Legal basis</th>
+<th align="left">How long</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">Server id, name and language</td>
+<td align="left">Know where Zprium is and which language to answer in</td>
+<td align="left">Service</td>
+<td align="left">Until 30 days after the bot leaves the server</td>
+</tr>
+<tr>
+<td align="left">Which modules the server enabled and their settings, with the id of the admin who changed them</td>
+<td align="left">Apply the configuration the server chose</td>
+<td align="left">Service</td>
+<td align="left">Same as above</td>
+</tr>
+<tr>
+<td align="left">Security record (ids of who acts and who is affected, the action and its details; for a quarantine, the roles removed so they can be restored)</td>
+<td align="left">Detect and record attacks (mass deletions, raids) and administrative actions, in a tamper-evident log</td>
+<td align="left">Legitimate interest (security)</td>
+<td align="left"><strong>No automatic deletion yet.</strong> From version 8.0.6, new records store a pseudonym instead of your id, and erasure works by destroying that pseudonym&#39;s key (see §6). Archival of records older than 12 months will come later. Until then we handle requests manually</td>
+</tr>
+<tr>
+<td align="left">Moderation cases, if the server turns on the moderation module. Each case stores: the action (warning, note, timeout, kick or ban), a <strong>pseudonym</strong> of the person it is about and one of the moderator (never either one&#39;s Discord ID), the reason the moderator writes, the duration, the date and whether the case was voided. Timeouts, kicks and bans the staff make from Discord, timeouts set by Discord&#39;s AutoMod, and the quarantines and kicks made by Aegis, Zprium&#39;s protection against attacks, are recorded as cases too. Aegis cases carry a fixed reason (the type of attack and how many actions there were) and cannot be appealed: the server&#39;s staff reviews them</td>
+<td align="left">Letting the server&#39;s staff keep a moderation history, with every action recorded and verifiable</td>
+<td align="left">Legitimate interest (the server&#39;s safety and order)</td>
+<td align="left"><strong>24 months</strong> from the case, then deleted automatically. Also deleted if the bot leaves the server (30 days)</td>
+</tr>
+<tr>
+<td align="left">Appeals against moderation cases, if the server turns them on. Each appeal stores: its state (pending, accepted or rejected), the dates, a <strong>pseudonym</strong> of you and one of whoever decided it (never either one&#39;s Discord ID), and the staff&#39;s reply, if they write one. <strong>We do not keep the text of your appeal:</strong> it is posted to the server&#39;s appeals channel</td>
+<td align="left">Letting you ask the staff to review a case, with their decision recorded</td>
+<td align="left">Legitimate interest (the server&#39;s safety and order, and your chance to contest a sanction)</td>
+<td align="left">The same as its case: <strong>24 months</strong> from the case, and deleted with it. Also deleted if the bot leaves the server (30 days). What is posted in the channel stays there for as long as its staff keeps it</td>
+</tr>
+<tr>
+<td align="left">AutoMod strikes, if the server turns the module on. Each strike stores: a <strong>pseudonym</strong> of you (never your Discord ID), whether it came from Discord&#39;s AutoMod or from a Zprium rule, the type of rule, the time and, if it came from Discord, the number of its entry in the server&#39;s audit log. <strong>Never the text of the message</strong> (Zprium does not receive it), the channel or the rule&#39;s name</td>
+<td align="left">Automatically timing out people who repeatedly break the server&#39;s rules</td>
+<td align="left">Legitimate interest (the server&#39;s safety and order)</td>
+<td align="left"><strong>30 days</strong>. They are also deleted if the bot leaves the server (30 days)</td>
+</tr>
+<tr>
+<td align="left">Verification, if the server turns it on. While you answer a challenge, Zprium keeps the server, your identifier, the kind of challenge and a fingerprint of the accepted answers (<strong>never what you type</strong>), and how many times you failed. When you verify, it keeps the date and a row in the security log with a <strong>pseudonym</strong> of yours, the role you got and the kind of challenge. If you use up your attempts, another such row, with the attempts and the wait. If the server sets a minimum age, your account&#39;s age is worked out from your identifier, without keeping anything. If it turns on the kick of members who do not verify, Zprium keeps a scheduled job with your identifier and the date you joined and, if it kicks you, another row with your <strong>pseudonym</strong> and the deadline. During a mass-join attack, it keeps only that the server is under attack, with no data of yours</td>
+<td align="left">So the server lets in only people, without leaving Discord</td>
+<td align="left">Legitimate interest (the server&#39;s security)</td>
+<td align="left">The challenge, <strong>10 minutes</strong>, and it is deleted once answered. The failures, the wait the staff chooses after the last one (<strong>24 hours</strong> at most). The date, like each member&#39;s state: until 30 days after leaving the server. The security log rows, like that log (§6). The kick&#39;s job, until the deadline and 30 days more. The note of the attack, as long as it lasts (<strong>24 hours</strong> at most)</td>
+</tr>
+<tr>
+<td align="left">Automatic roles, if the server turns the module on. If there is a delay or a retry, a scheduled job with your ID and the time you joined. For each role, security-log rows with a <strong>pseudonym</strong> of yours, the time you joined and the role: that Zprium was about to give it, that Discord accepted it, or that you already had it and who added it could not be confirmed</td>
+<td align="left">Give you the roles the server chose and be able to check later what Zprium did</td>
+<td align="left">Provision of the service (the scheduled job). Legitimate interest (server security and operation) for the log rows</td>
+<td align="left">The job: 30 days after it ends. The rows: like the rest of the security log (§6)</td>
+</tr>
+<tr>
+<td align="left">Welcomes, if the server turns the module on. For 24 hours at most, and only in the process memory, your identifier and the time you joined, so you are not welcomed twice. <strong>If the server turns the card on, your profile picture and display name, only while the card is drawn (2 seconds at most)</strong></td>
+<td align="left">Welcoming you once and, if the server chooses, with a card; saying goodbye or sending you a direct message</td>
+<td align="left">Legitimate interest (welcoming newcomers and running the server)</td>
+<td align="left">24 hours, or until Zprium restarts. <strong>The profile picture, only while the card is drawn.</strong> The messages and cards posted are kept by Discord</td>
+</tr>
+<tr>
+<td align="left">Economy, if the server turns the module on: your virtual coin balance, when you last claimed the daily reward, the history of your movements (rewards, transfers, purchases, game prizes and level rewards, with the other member when there is one) and your shop items</td>
+<td align="left">So you can earn, send and spend coins in that server without anything getting lost or charged twice</td>
+<td align="left">Provision of the service</td>
+<td align="left">While the server uses Zprium; deleted on your erasure request or when the server is purged</td>
+</tr>
+<tr>
+<td align="left">Levels, if the server turns the module on: your XP and level in that server, how many of your messages earned XP, when the last one did and that day&#39;s XP</td>
+<td align="left">So you can see your progress with <code>/profile</code> and the leaderboard with <code>/levels leaderboard</code></td>
+<td align="left">Provision of the service</td>
+<td align="left">While the server uses Zprium, even if it turns the module off; deleted on your erasure request or when the server is purged</td>
+</tr>
+<tr>
+<td align="left">Giveaways, if the server turns the module on: whether you entered a giveaway and when; if you win, that you won; if you host one, that you started it</td>
+<td align="left">So you can enter and leave, and so the result can be reproduced</td>
+<td align="left">Provision of the service</td>
+<td align="left">While the server uses Zprium; deleted on your erasure request or when the server is purged (see the limits in §6)</td>
+</tr>
+<tr>
+<td align="left">Support tickets, if the server turns the module on: that you opened a ticket, its number, its topic (support, report or other), its thread, its state and who on the staff took or closed it. <strong>Never the subject, the description or the messages</strong></td>
+<td align="left">So the server&#39;s staff can help you privately and know which tickets are still open</td>
+<td align="left">Provision of the service</td>
+<td align="left">While the server uses Zprium; deleted on your erasure request or when the server is purged</td>
+</tr>
+<tr>
+<td align="left">Server logs, if the server turns on the logs module. Zprium posts to the channels the staff picks: members joining and leaving (with the account&#39;s creation date), when a member verifies or uses up their verification attempts (with the kind of challenge, <strong>never the answer</strong>), when the verification kicks a member who did not verify in time (with the deadline, <strong>never a reason</strong>), deleted or edited messages (author, channel and time; <strong>never the text</strong>), voice channel joins and leaves, channels and roles created, changed or deleted (and who did it), AutoMod rules created, changed or deleted (their name and who did it, never their words), moderation cases and, if the server turns on AutoMod, its strikes</td>
+<td align="left">Letting the server&#39;s staff see what happens in it and moderate it</td>
+<td align="left">Legitimate interest (the server&#39;s safety and order)</td>
+<td align="left"><strong>Zprium does not keep them:</strong> each event waits in memory for at most 15 minutes until it is posted, and is lost if the bot restarts. What is posted stays in the server&#39;s channel for as long as its staff keeps it</td>
+</tr>
+<tr>
+<td align="left">Event log (ids in server events, never message text)</td>
+<td align="left">Crash recovery and security analysis</td>
+<td align="left">Legitimate interest</td>
+<td align="left">30 days</td>
+</tr>
+<tr>
+<td align="left">Server automations (Z-Flow): definitions, runs (metadata only, never message text) and failures</td>
+<td align="left">Run the automations the server creates</td>
+<td align="left">Service</td>
+<td align="left">Runs: 90 days. Resolved failures: 30 days. Definitions: until the server is purged</td>
+</tr>
+<tr>
+<td align="left">Esports teams, rosters and scrim results</td>
+<td align="left">Organize the server&#39;s matches</td>
+<td align="left">Service</td>
+<td align="left">Until the server is purged</td>
+</tr>
+<tr>
+<td align="left">The server&#39;s knowledge base: texts the controller or the staff review and add, with their source, dates and vectors</td>
+<td align="left">Answering questions with local AI, citing where each answer comes from</td>
+<td align="left">Service</td>
+<td align="left">Until they are replaced or deleted, or the server is purged</td>
+</tr>
+<tr>
+<td align="left">Your conversation with <code>/ai ask</code>: your questions and the answers (at most 20 messages)</td>
+<td align="left">Letting the AI take into account what you just asked</td>
+<td align="left">Service</td>
+<td align="left"><strong>30 minutes</strong> after your last question; then it disappears on its own</td>
+</tr>
+<tr>
+<td align="left">Questions the knowledge base could not answer: the text of the question <strong>without who asked it</strong>, with identifiers, email addresses, phone numbers and other data removed; if it touches health, religion or other special categories, only which kind it was</td>
+<td align="left">Knowing what the knowledge base is missing</td>
+<td align="left">Legitimate interest (improving the service)</td>
+<td align="left"><strong>180 days</strong> after the last time someone asked it</td>
+</tr>
+<tr>
+<td align="left">Staff notes of <code>/ai memory</code>: the text of the note and who saved it</td>
+<td align="left">Giving the AI context about the server</td>
+<td align="left">Legitimate interest (running the server)</td>
+<td align="left">Until the staff deletes it or the server is purged</td>
+</tr>
+<tr>
+<td align="left"><strong>Your memory with the AI, only if you turn it on</strong> with <code>/ai mydata</code>: what you ask it to keep (preferences, context, notes for later), with its kind and version, and your consent</td>
+<td align="left">Remembering what you ask it to</td>
+<td align="left"><strong>Your consent</strong>, which you can withdraw at any time</td>
+<td align="left">Until you delete it or withdraw your consent; if you do not save it again, <strong>365 days</strong> (180 for summaries). A withdrawn consent is deleted after <strong>30 days</strong></td>
+</tr>
+<tr>
+<td align="left">Proposals, notices and jobs of the autonomous engine</td>
+<td align="left">Automatic operations the server enabled</td>
+<td align="left">Legitimate interest</td>
+<td align="left">90 days after they finish; pending ones are kept until decided or expired</td>
+</tr>
+<tr>
+<td align="left">Per-member state in the server (id and the data of the modules that use it)</td>
+<td align="left">Moderation and server features</td>
+<td align="left">Legitimate interest</td>
+<td align="left">While a member; deleted 30 days after leaving the server (kept if they come back sooner)</td>
+</tr>
+<tr>
+<td align="left">Scheduled jobs (for example, reminders); they may include the id of the member concerned</td>
+<td align="left">Do later what the server asked for</td>
+<td align="left">Service provision</td>
+<td align="left">30 days after they finish</td>
+</tr>
+<tr>
+<td align="left">Web console session (Discord id and name, server list)</td>
+<td align="left">Sign in to the console</td>
+<td align="left">Service</td>
+<td align="left">8 hours, or until you sign out</td>
+</tr>
+<tr>
+<td align="left">Cached AI answers</td>
+<td align="left">Avoid repeating work</td>
+<td align="left">Service</td>
+<td align="left">30 minutes</td>
+</tr>
+</tbody></table>
+</div><p><strong>Moderation notices.</strong> If a moderator warns you, times you out or kicks you with Zprium, the server may send you a direct message with the action, the reason and the duration. It <strong>never says who did it</strong>. Staff-only notes are never sent to you. These notices are on by default, and each server can turn them off.</p>
+<p><strong>Appeals.</strong> If the server has appeals turned on, the direct message that tells you of a warning, a timeout or a kick includes a button to appeal for <strong>14 days</strong>.</p>
+<ul>
+<li>You write why you think the case should be reviewed.</li>
+<li>Zprium posts it in a private staff channel of the server, together with your Discord name and the case. It does not keep that text: you keep a copy in the direct message.</li>
+<li>The staff decides. We tell you by direct message, <strong>without saying who decided</strong>, and you can check the state at any time with the same button.</li>
+<li>You can appeal each case <strong>once</strong>, and at most <strong>3 cases every 30 days</strong> in each server.</li>
+<li>Staff-only notes cannot be appealed, because they are never sent to you.</li>
+</ul>
+<p><strong>AutoMod.</strong> If the server turns on Zprium&#39;s AutoMod module:</p>
+<ul>
+<li>When Discord&#39;s AutoMod blocks a message of yours, Zprium learns it from the server&#39;s audit log: who, when and what type of rule. <strong>Never what the message said.</strong></li>
+<li>Zprium also counts, without reading them, how many messages you send within a few seconds and how many people or roles you mention in a message. Those counts last less than a minute and are not stored.</li>
+<li>Each of those facts is a <strong>strike</strong>. If you collect several in a short time, Zprium <strong>times you out</strong> for a while automatically. By default: 3 in an hour, 10 minutes; 5 in a day, one hour; 8 in a week, one day. Each server can change these values.</li>
+<li>The timeout opens a moderation case. As with any timeout, we tell you by direct message and <strong>you can appeal it</strong>, if the server has notices and appeals turned on.</li>
+<li>If the server keeps moderation logs, each strike shows in its log channel: who, the channel and the type of rule, never the text. So do the messages Discord&#39;s AutoMod flags for the staff and the profiles it quarantines, with the rule&#39;s name.</li>
+<li>If the server turns it on, Zprium also creates and maintains Discord AutoMod rules on behalf of its staff (invites, links, words and others). The words of those rules are stored in Discord, not in Zprium: Zprium only keeps which rule is its own, a fingerprint to tell whether someone changed it, and the date.</li>
+<li>Zprium&#39;s AutoMod never kicks or bans anyone.</li>
+<li>Zprium&#39;s strikes and automatic timeouts do not apply to the server&#39;s staff.</li>
+</ul>
+<p><strong>Aegis.</strong></p>
+<ul>
+<li>If the server has a log channel, when Aegis detects an attack it posts there what it did and mentions the person it attributes the attack to. In monitor mode it does nothing: it posts what it would have done in enforce mode, unless the staff turns those reports off.</li>
+<li>During a mass-join attack, if the staff turns it on, Aegis can raise the server&#39;s verification level and turn on a Discord AutoMod rule that compares your name and nickname with words the staff chooses. Discord does the comparison: Zprium neither reads nor stores your profile. The level and the rule go back to how they were after the time the staff chooses; if the rule blocked you, you can interact again by changing your name or nickname.</li>
+</ul>
+<p><strong>Verification.</strong> If the server turns on Zprium&#39;s verification:</p>
+<ul>
+<li>To see the rest of the server, you press &quot;Verify me&quot; and answer a short challenge: a button, picking an emoji, a simple calculation or a question from the staff. Everything happens inside Discord: <strong>no web pages, no third-party captchas and no record of your IP address</strong>.</li>
+<li>When you press it, Zprium looks at what Discord sends with your press (your roles, whether you accepted the server rules, whether you are timed out and whether AutoMod blocked your name), and does not keep it.</li>
+<li>If you answer right, Zprium gives you the role the staff chose. If you fail several times, you wait the time the staff chose before trying again.</li>
+<li>If the server sets a minimum age, a newer account cannot verify until it reaches it, and Zprium tells you from which day you can. The age comes from your Discord identifier: Zprium keeps nothing new.</li>
+<li>During a mass-join attack that Aegis detects, the challenge is harder until the time the staff chose has passed: a simple calculation (or the staff&#39;s question), <strong>a single attempt</strong> and accounts of <strong>7 days</strong> at least.</li>
+<li>If the server turns it on, Zprium kicks members who do not verify within the time the staff chose (<strong>24 hours</strong> by default). Before that it tells you by direct message, if yours are open. <strong>It is not a sanction or a moderation case</strong>: you can join again whenever you like. It never kicks the staff, anyone already verified or anyone the staff holds (quarantined or timed out), and if Zprium was down, the time counts from when it came back. Discord keeps in the server&#39;s audit log that Zprium kicked you.</li>
+<li>Your answer is compared with the accepted ones and thrown away: Zprium never keeps or posts it.</li>
+<li>Discord keeps in the server&#39;s audit log that Zprium gave you the role.</li>
+</ul>
+<p><strong>Automatic roles.</strong> If the server turns the module on, Zprium gives you the roles the staff chose when you join (10 at most).</p>
+<ul>
+<li>It only <strong>adds</strong> roles: it never removes any, including the ones you already had.</li>
+<li>It waits until you finish Discord&#39;s membership screening and, if the server uses Zprium&#39;s verification, until you pass it (unless the staff chose to give them on join).</li>
+<li>During a mass-join attack that Aegis detects, it waits until the attack ends.</li>
+<li>It never gives a role with staff permissions and never gives roles to people who were already in the server when it was turned on.</li>
+<li>If the staff removes a role Zprium gave you, Zprium does not give it back while you stay in the server; leaving and coming back is a new join.</li>
+<li>Discord keeps in its audit log that Zprium gave you the role, with the reason &quot;Zprium: automatic roles&quot;.</li>
+</ul>
+<p><strong>Welcomes.</strong> If the server turns the module on, Zprium posts a welcome message when you join, in the channel the staff chose.</p>
+<ul>
+<li>Each server&#39;s staff writes the text; Zprium only fills in the variables and limits the mentions. The content is the server&#39;s responsibility.</li>
+<li>The message mentions only you: never @everyone, @here or a role, whatever the staff&#39;s text says. Your name appears as plain text, without formatting.</li>
+<li>It waits until you finish Discord&#39;s screening and, if the server uses Zprium&#39;s verification, until you pass it (unless the staff chooses to welcome on join).</li>
+<li>During a mass-join attack detected by Aegis it posts no welcomes, and outside one it posts at most 5 a minute in each server.</li>
+<li>If the server turns it on, it also sends you a direct message with a link to the guide channel and another to this policy. The server decides whether the DM is sent; the staff can turn it off at any time. It is a single message and is not retried: if your DMs are closed, nothing else is sent.</li>
+<li>If the server turns the welcome card on, Zprium draws an image with your Discord profile picture, your display name, the server&#39;s name and its number of members at that moment, and posts it with the message. To draw it, Zprium downloads your profile picture from Discord itself. Zprium stops using your picture as soon as the card is drawn (2 seconds at most), does not keep it on disk or in a cache, and discards it from memory when the request ends. The card drawer has no internet access and does not know your identifier. If the card cannot be drawn in time, the welcome is posted without an image.</li>
+<li>If the server turns goodbyes on, when you leave it posts your name, without mentioning you and without saying why you left. It does so only if you had finished joining (screening or verification); if Zprium cannot tell, it posts nothing. The server can turn the goodbye off, and we recommend its staff announce it in the server&#39;s rules.</li>
+</ul>
+<p><strong>Economy.</strong> Coins are virtual: they are worth no real money and cannot be exchanged for it. Each server has its own and nothing mixes between servers. The server can see the balance leaderboard with <code>/economy leaderboard</code>, which shows your name and balance.</p>
+<p><strong>Levels.</strong> If the server turns the levels module on:</p>
+<ul>
+<li>Each time you send a message, Discord tells Zprium. For XP, Zprium only uses <strong>who</strong> sent it, <strong>in which server</strong> and <strong>when</strong>: it does not analyse or store its text. Messages from bots, webhooks and the system do not count.</li>
+<li>A message earns 15 to 25 XP, at most once a minute and up to 500 XP a day (UTC). The server&#39;s staff can change those values with <code>/config</code> and turn the module off at any time.</li>
+<li>Only messages sent after the module is turned on count.</li>
+<li>Any member of the server can see your level, XP and rank with <code>/profile</code> or on <code>/levels leaderboard</code> (the top 10). If the server uses the economy, <code>/profile</code> also shows your coins and badges. Those answers are shown only to whoever asks and notify no one.</li>
+<li>Each server has its own levels: nothing mixes between servers.</li>
+<li>Turning the module off stops adding XP but does not delete what you had: if it is turned on again, it is still there. It is deleted on your erasure request or when the server is purged.</li>
+<li>If the staff sets rewards, reaching a level can give you a role (never one with staff permissions) or coins of the server&#39;s economy, <strong>once per level</strong>. The role appears in Discord&#39;s audit log with the reason &quot;Zprium: level N reward&quot; and in our security log; the coins, in the economy&#39;s movement history.</li>
+<li>If the staff picks an announcement channel, Zprium posts &quot;🎉 [your name] reached level N&quot; there, <strong>without notifying you</strong>. With no channel picked (the usual case), nothing is announced.</li>
+</ul>
+<p><strong>Giveaways.</strong> If the server turns the giveaways module on:</p>
+<ul>
+<li>You enter by pressing &quot;Enter&quot; and can leave while it is open. Zprium keeps that you entered and when; it keeps no message of yours. Only one entry per person counts.</li>
+<li><strong>What is published.</strong> The result is posted in the giveaway&#39;s channel, which may be public: the winners are <strong>mentioned</strong> (only they are notified), along with the number of participants, the giveaway&#39;s seed and a SHA-256 digest of the list of Discord identifiers of those still in the server at the close. The list itself is not published.</li>
+<li><strong>The digest is not anonymous.</strong> It is an unsalted SHA-256 of Discord identifiers, which are not secret. Someone who knows the possible participants (for example, in a small server) can try lists until one matches and so learn who entered. We do not promise that the digest cannot be linked to you.</li>
+<li><strong>What can and cannot be checked.</strong> At the start, the SHA-256 of a secret seed is published. At the close, anyone can check that the revealed seed is the committed one and, <strong>if they know the exact list of eligible participants</strong>, recompute the winners with the published algorithm (HMAC-SHA256 of the seed with each identifier). This does not prove that the list included every eligible participant, nor that Zprium did not know its own seed: the bot generates it.</li>
+<li>Giveaways take no payments and no bets. The prize is described and delivered by the server&#39;s staff, not by Zprium.</li>
+</ul>
+<p><strong>Tickets.</strong> If the server turns the tickets module on:</p>
+<ul>
+<li>You open a ticket from the server&#39;s panel by filling in a form. Zprium creates a <strong>private thread</strong>, adds you and posts your subject and description there once. In a private staff channel it posts a notice with the ticket&#39;s number, its topic and your name, without what you wrote. <strong>Zprium does not keep what you wrote</strong>: it stays only as a message in the Discord thread, and it does not disappear from Discord because Zprium does not keep it.</li>
+<li>The thread is seen by you, by the staff members who join it, by the server&#39;s owner and by anyone with Discord&#39;s &quot;Manage Threads&quot; or administrator permission in that channel, even if they do not handle tickets, <strong>including other bots</strong> the server installed with that permission. Discord decides that from the server&#39;s permissions. Zprium mentions nobody inside the thread and breaks any mention you type, so nobody can be added that way.</li>
+<li>Zprium keeps only the ticket&#39;s data: number, topic, thread, state, who opened it and who took or closed it. You can have <strong>one open ticket per server</strong>.</li>
+<li>When it is closed, the thread is locked and archived; its messages stay in Discord. Staff can reopen it.</li>
+<li>Zprium <strong>does not transcribe or archive</strong> ticket conversations and does not use them with the AI.</li>
+</ul>
+<p><strong>Music.</strong> While music plays in a voice channel, Zprium keeps in memory the channel and who asked for each song, for the queue and its controls. It is cleared when the channel empties, with <code>/music leave</code> or when the bot restarts. Downloaded songs are kept on Zprium&#39;s server as a local copy, with no data about you, and deleted after 30 days without being played.</p>
+<p><strong>Server logs.</strong> If the server turns on the logs module, Zprium posts in a staff channel when you join or leave the server, when you verify or use up your verification attempts, when the verification kicks you for not verifying in time, when you join or leave a voice channel, and when one of your messages is deleted or edited. For a message it only gives the author, the channel and the time: <strong>never its text</strong>, which Zprium does not read. If the message was not in the bot&#39;s memory, not even the author. Zprium reports nothing that happens in a channel Discord hides from it, and its posts ping nobody. The server&#39;s staff reads those logs and keeps or deletes them like any other message in their server. Zprium keeps no copy.</p>
+<p><strong>Full list, generated from the code:</strong> <a href="/datos-por-modulo">data per module</a>.</p>
+<p><strong>Artificial intelligence:</strong></p>
+<ul>
+<li>Zprium&#39;s AI (summaries, questions to the knowledge base) runs <strong>only on our machine</strong>, with local models.</li>
+<li>No text is sent to third-party AI services.</li>
+<li>We do not use your data to train models.</li>
+<li>AI-generated answers are labelled as such.</li>
+<li><strong>Your memory with the AI</strong> is off until you turn it on with <code>/ai mydata</code>. Before keeping anything, Zprium checks the text and refuses what looks like a secret or an identifier, data about health, religion, political opinions, sexual orientation, ethnic origin, trade union membership, genetic or biometric data, or financial hardship. The check is automatic and may not catch everything: do not write such data.</li>
+<li>The AI only uses your memory in answers that <strong>only you can see</strong>. Never in a message in a channel.</li>
+<li>We infer nothing about you: the AI only keeps what you ask it to keep.</li>
+</ul>
+<p><strong>We do not:</strong></p>
+<ul>
+<li>advertise or sell data;</li>
+<li>build profiles across servers;</li>
+<li>log members&#39; IP addresses;</li>
+<li>read presence status.</li>
+</ul>
+<h2>4. Who we share data with</h2>
+<ul>
+<li><p><strong>Discord Inc.:</strong> Zprium works inside Discord, and whatever the bot posts is processed by Discord under its own privacy policy.</p>
+</li>
+<li><p><strong>Cloudflare, Inc.</strong>, once the web console is published on the Internet: console traffic goes through its network (tunnel and attack protection). Cloudflare acts as our processor.</p>
+</li>
+<li><p><strong>Backups kept off the main machine:</strong> they are encrypted on our machine <strong>before</strong> they leave it, with a key only the controller holds. No one else can read them, including the providers that store them. They are kept on:</p>
+<ul>
+<li>another machine of the controller, in Italy;</li>
+<li><strong>Google Drive (Google Ireland Limited)</strong>, as plain storage;</li>
+<li><strong>Cloudflare R2</strong>, in the European Union, until we retire it.</li>
+</ul>
+<p>No copy is kept for more than <strong>35 days</strong>.</p>
+</li>
+<li><p><strong>No one else,</strong> except where the law requires it.</p>
+</li>
+</ul>
+<p><strong>International transfers:</strong></p>
+<ul>
+<li>Discord and Cloudflare may process data outside the European Economic Area, under the safeguards they provide (standard contractual clauses). Google may store the encrypted backups outside the EEA, under the same safeguards.</li>
+<li>We store the data in <strong>Italy</strong>. The encrypted backups are also held by the providers listed above.</li>
+</ul>
+<h2>5. Security</h2>
+<p>We apply these measures:</p>
+<ul>
+<li>no exposed database ports;</li>
+<li>secrets kept out of the code;</li>
+<li>server-side console sessions that expire;</li>
+<li>console permissions computed on the server for every request;</li>
+<li>a tamper-evident security log protected by a hash chain;</li>
+<li>automatic purge of a server&#39;s data 30 days after the bot leaves it;</li>
+<li>backups encrypted with <code>age</code>, kept for 35 days at most, with an automatic test restore every week.</li>
+</ul>
+<h2>6. Your rights</h2>
+<p><strong>What you can ask for:</strong></p>
+<ul>
+<li>access to your data;</li>
+<li>rectification;</li>
+<li>erasure;</li>
+<li>restriction of processing;</li>
+<li>objection;</li>
+<li>portability.</li>
+</ul>
+<p><strong>How to ask:</strong> email <strong><a href="mailto:zprium.support@gmail.com">zprium.support@gmail.com</a></strong> or open a ticket in <strong>the support server (<a href="https://discord.gg/HcfkxN7TcH">https://discord.gg/HcfkxN7TcH</a>)</strong>, giving your Discord user id. We will ask you to confirm from Discord that the account is yours.</p>
+<p><strong>Deadlines and scope:</strong></p>
+<ul>
+<li><p>We answer within <strong>one month</strong>.</p>
+</li>
+<li><p>Requests are handled and carried out <strong>only by the controller</strong>, after checking that the account is yours. We tell you when it is done.</p>
+</li>
+<li><p>In the security log, which is immutable, no rows are deleted. What is destroyed is the key of your pseudonym, and from then on the rows can no longer be linked to you. Erasure is complete once the backups that still hold that key rotate out, within 35 days at most. We may keep what the security of the service strictly requires (GDPR art. 17(3)).</p>
+</li>
+<li><p><strong>Moderation cases.</strong> They work like the security log: they store a pseudonym, not your ID. When we act on your erasure request we destroy the key behind that pseudonym, and from then on your cases can no longer be linked to you. The case itself (the action and its date) is kept until it is 24 months old, for the server&#39;s legitimate interest in its history (Art. 17(3) GDPR).</p>
+<ul>
+<li>The reason is free text. If a moderator wrote your name in it without mentioning you, that name may remain in the text: tell us in your request and we will review it by hand.</li>
+<li>A moderator cannot delete a case, only void it with a reason.</li>
+</ul>
+</li>
+<li><p><strong>Appeals.</strong> They work like cases: they store pseudonyms, and when we act on your erasure request we destroy their key, so your appeals can no longer be linked to you. They are deleted with their case.</p>
+<ul>
+<li>The text of your appeal is not in our systems but in the server&#39;s appeals channel. To have it deleted, ask its staff; if they do not act on it, write to us and we will pass it on to the server.</li>
+<li>The staff&#39;s reply is free text. If someone on the staff wrote your name in it without mentioning you, that name may remain in the text: tell us in your request and we will review it by hand.</li>
+</ul>
+</li>
+<li><p><strong>AutoMod strikes.</strong> They store pseudonyms, like cases. But those that come from Discord&#39;s AutoMod also store the number of their entry in the server&#39;s audit log, where Discord does show who it was. So when we act on your erasure request we <strong>delete your strikes</strong>, as well as destroying your key. Otherwise they are deleted after 30 days.</p>
+</li>
+<li><p><strong>Server logs.</strong> Zprium does not keep the logs it posts, so there is nothing to delete in our systems. The posts are in the server&#39;s channel: to have one deleted, ask its staff. If they do not act on it, write to us and we will pass it on to the server.</p>
+</li>
+<li><p><strong>Verification.</strong> The challenge and the failures expire on their own: in 10 minutes and in 24 hours at most. The date you verified is deleted 30 days after you leave the server, or when we handle your erasure request. The security log rows work like the rest: they keep a pseudonym, and when we handle your erasure request we destroy its key. The kick&#39;s scheduled job is deleted 30 days after it ends, like the other scheduled jobs.</p>
+</li>
+<li><p><strong>Automatic roles.</strong> Security-log rows work like the rest: they keep a pseudonym, and when we handle your erasure request we destroy its key. When we handle your erasure request we also delete the scheduled jobs that were going to give you a role, and none of them can act on that join again, including after a backup restore. If one was running at that moment, it stops before its next step; what Discord had already done (a role already given) is not undone by the erasure: ask the server&#39;s staff. If you join again later, that is a new join. Discord&#39;s audit log is handled by Discord and the server. If you do not want automatic roles, ask the server&#39;s staff: they can remove the role (Zprium does not give it back for that join) or turn the module off.</p>
+</li>
+<li><p><strong>Welcomes.</strong> Zprium keeps nothing of yours on disk for this module. It remembers in memory, for 24 hours at most, that your join was already welcomed, and forgets it when it restarts. If you request erasure of your data, Zprium posts no welcomes or goodbyes about you from that date. Messages already posted in Discord can be deleted by the server&#39;s staff or by you, as Discord&#39;s permissions allow. If you do not want your card posted, you can ask the server&#39;s staff to turn the card off, or ask for your data to be erased: from that date Zprium stops posting your welcome, your goodbye and your card. A card already posted is on Discord: the server&#39;s staff can delete it, or you can ask them to.</p>
+</li>
+<li><p><strong>Economy.</strong> When we handle your erasure request we delete your balance, items and movements in every server; in other members&#39; movements with you, we remove your identifier.</p>
+</li>
+<li><p><strong>Levels.</strong> When we handle your erasure request we delete your XP and level in every server, and they do not come back even if we restore a backup.</p>
+</li>
+<li><p><strong>Giveaways.</strong> When we handle your erasure request we delete your entries in every server, remove you from the winners and remove your identifier from the giveaways you hosted, and it does not come back even if we restore a backup. <strong>What Zprium cannot delete:</strong> the participants digest of a giveaway already closed stays as it is and was computed with your identifier if you entered, so it could still be used to check that you entered; and result messages that mention you are in the server&#39;s channel, in Discord: to have one deleted, ask its staff.</p>
+</li>
+<li><p><strong>Tickets.</strong> When we act on your erasure request we <strong>delete the tickets you opened</strong> and remove your name from the ones you took or closed as staff; restoring a backup does not bring them back. <strong>We do not delete the Discord threads, messages or staff-channel notices</strong>, which belong to the server: ask its staff. Security-log rows about your tickets (open, take, join, close, reopen) keep a pseudonym, the ticket&#39;s number, topic and thread, never what you wrote; on erasure we destroy that pseudonym&#39;s key.</p>
+</li>
+<li><p><strong>Your memory with the AI.</strong> With <code>/ai mydata</code> you can:</p>
+<ul>
+<li>see it;</li>
+<li>export it to a file;</li>
+<li>correct it, by saving the same key again;</li>
+<li>delete one note or all of it, and withdraw your consent, which deletes it at once.</li>
+</ul>
+<p>Each of those actions is recorded in the security log, without the content. If you ask us for erasure, we delete it in every server and remove your name from the staff notes you saved, and it does not come back even if we restore a backup. Erasure is complete when the backups rotate, within 35 days at most.</p>
+</li>
+<li><p><strong>Your <code>/ai ask</code> conversation and unanswered questions.</strong> The conversation disappears on its own after 30 minutes. Unanswered questions do not keep who asked them, so we cannot find them by your identifier. If you wrote something in one that identifies you, tell us and we will review it by hand.</p>
+</li>
+<li><p><strong>List of erasures.</strong> So that restoring a backup cannot undo your erasure, we keep a minimal list with three items:</p>
+<ul>
+<li>a fingerprint of your id (HMAC-SHA256), computed with a key that is kept outside the database. Never your id in clear, and without that key the fingerprint cannot be linked to you;</li>
+<li>the date of the erasure;</li>
+<li>who carried it out.</li>
+</ul>
+<p>After <strong>any</strong> restore of a backup, and before the bot starts again, every erasure on the list is applied again: the keys, member data and AutoMod strikes from before each erasure are destroyed once more. If you use the bot again after the erasure, you start from scratch and the list does not affect your new data. The list is kept for as long as the service exists, because it is what stops an erasure from being undone and what shows that we handled your request.</p>
+</li>
+<li><p>Administrators can delete all of their server&#39;s data by removing the bot: it is erased after 30 days.</p>
+</li>
+</ul>
+<p><strong>Complaints:</strong> you can also complain to the data protection authority of your country. In <strong>Italy</strong> that is the <strong>Garante per la protezione dei dati personali</strong> (<a href="https://www.garanteprivacy.it">https://www.garanteprivacy.it</a>).</p>
+<h2>7. Children</h2>
+<p>Zprium is not directed at people under the minimum age Discord requires in their country, and does not knowingly collect their data beyond what it needs to work in a server.</p>
+<h2>8. Cookies</h2>
+<p>The web console uses <strong>a single session cookie</strong>, strictly necessary to sign in. We use no analytics or advertising cookies.</p>
+<h2>9. Changes</h2>
+<p>If we change this policy, we will announce it in <strong>the support server (<a href="https://discord.gg/HcfkxN7TcH">https://discord.gg/HcfkxN7TcH</a>)</strong> and update the date above. Changes that reduce your rights will not apply retroactively.</p>
+</article>
+</main>
+<footer class="foot">
+<div class="foot-brand"><a class="lockup tiny" href="/" aria-label="Zprium by AscendXion, inicio"><img src="/assets/zprium-icon.png" alt="" width="40" height="40"><span class="word">ZPRIUM</span><span class="by">by ASCENDXION</span></a><p>Hecho para la comunidad AscendXion. IA local, sin servicios de IA en la nube.</p></div>
+<ul class="foot-links"><li><a href="/privacidad">Privacidad</a></li><li><a href="/privacy">Privacy</a></li><li><a href="/terminos">Términos</a></li><li><a href="/terms">Terms</a></li><li><a href="/subscriptions">Suscripciones</a></li><li><a href="/refunds">Reembolsos</a></li><li><a href="/cookies">Cookies</a></li><li><a href="/datos-por-modulo">Datos por módulo</a></li></ul>
+<p class="foot-contact">Soporte: <a href="https://discord.gg/HcfkxN7TcH">servidor ASXN</a> o <a href="mailto:zprium.support@gmail.com">zprium.support@gmail.com</a></p>
+</footer>
+</body>
+</html>
